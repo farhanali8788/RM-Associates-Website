@@ -1,0 +1,103 @@
+<style>
+  /* ================= FOOTER ================= */
+
+  .site-footer {
+    background: #0f172a;
+    color: #cbd5e1;
+    padding: 60px 0 0;
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .site-footer h4,
+  .site-footer h5 {
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .site-footer p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-footer ul li {
+    margin-bottom: 8px;
+  }
+
+  .site-footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer a:hover {
+    color: #1e88e5;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #94a3b8;
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- BRAND -->
+      <div class="footer-brand">
+        <h4>RM <span style="color: var(--primary)">ASSOCIATES</span></h4>
+        <p>
+          Reliable civil and construction solutions built with precision,
+          transparency, and long-term value.
+        </p>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <address>
+          <p>
+            Email:
+            <a href="mailto:info@rmassociates.com"> info@rmassociates.com </a>
+          </p>
+          <p>
+            Phone:
+            <a href="tel:+919000000000"> +91 9XXXXXXXXX </a>
+          </p>
+        </address>
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+      © <span id="currentYear"></span> RM Associates. All rights reserved.
+    </div>
+  </div>
+</footer>

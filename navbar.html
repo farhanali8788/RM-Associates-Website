@@ -1,0 +1,346 @@
+<style>
+  /* ================= HEADER ================= */
+
+  /* Luxury Navbar */
+  .navbar-custom {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    padding: 18px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Brand */
+  .navbar-custom .navbar-brand {
+    font-size: 1.6rem;
+    color: var(--dark);
+    font-weight: 700;
+    padding-left: clamp(12px, 5vw, 100px);
+  }
+  .navbar-custom .navbar-brand span {
+    color: var(--primary);
+  }
+
+  /* Links */
+  .navbar-nav {
+    gap: 0;
+    padding-right: clamp(12px, 5vw, 100px);
+  }
+
+  .navbar-custom .nav-link {
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+    color: var(--dark);
+  }
+
+  /* Underline hover */
+  .navbar-custom .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), #38bdf8);
+    transform: translateX(-50%);
+    transition: 0.35s ease;
+  }
+
+  /* Hover */
+  .navbar-custom .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* ================= DESKTOP DROPDOWN ================= */
+  @media (min-width: 769px) {
+    .hover-dropdown {
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    /* Base (closed) */
+    .hover-dropdown > .dropdown-menu {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px; /* adjust 260–320 as you like */
+      padding: 14px 0;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: rotateY(90deg);
+      transform-origin: top center;
+
+      border-radius: 12px;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.85),
+        rgba(2, 6, 23, 0.85)
+      );
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+      pointer-events: none;
+      transition: 0.35s ease;
+    }
+    .hover-dropdown::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 10px;
+      width: 100%;
+    }
+
+    /* OPEN (stay open on menu hover) */
+    .hover-dropdown:hover > .dropdown-menu,
+    .hover-dropdown > .dropdown-menu:hover {
+      visibility: visible;
+      opacity: 1;
+      transform: rotateY(0);
+      pointer-events: auto;
+      animation: rotateYIn 0.45s ease-in-out forwards;
+    }
+
+    /* CLOSE */
+    .hover-dropdown:not(:hover) > .dropdown-menu {
+      animation: rotateYOut 0.35s ease-in-out forwards;
+    }
+
+    /* OPEN animation */
+    @keyframes rotateYIn {
+      0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+      }
+      70% {
+        transform: rotateY(-10deg);
+      }
+      100% {
+        opacity: 1;
+        transform: rotateY(0);
+      }
+    }
+
+    /* CLOSE animation */
+    @keyframes rotateYOut {
+      0% {
+        opacity: 1;
+        transform: rotateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: rotateY(90deg);
+      }
+    }
+
+    .dropdown-menu .dropdown-item {
+      position: relative;
+      background: transparent !important;
+      color: var(--primary-light);
+      padding: 12px 26px;
+      letter-spacing: 0.2px;
+      transition: background 0.2s ease-in-out;
+    }
+
+    /* underline */
+    .dropdown-menu .dropdown-item::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 6px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), #38bdf8);
+      transform: translateX(-50%);
+      transition: 0.35s ease;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+      color: var(--primary);
+    }
+    /* Hover */
+    .dropdown-menu .dropdown-item:hover::after {
+      width: calc(100% - 40px);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+    }
+  }
+
+  /* ================= MOBILE ================= */
+
+  .mobile-canvas {
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .mobile-canvas .nav-link {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .offcanvas {
+      border-radius: 12px 0 0 12px;
+      padding: 10px 0;
+    }
+
+    .offcanvas-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .offcanvas-title {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .btn-close {
+      font-size: 14px;
+    }
+
+    .offcanvas-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .offcanvas-body li {
+      margin: 5px 0;
+    }
+
+    .offcanvas-body a {
+      display: block;
+      font-size: 17px;
+      font-weight: 500;
+      color: #111;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .offcanvas-body a:hover {
+      background: var(--white);
+    }
+
+    /* Mobile dropdown */
+    .dropdown-menu {
+      position: static !important;
+      transform: none !important;
+      background: var(--dark);
+      margin-top: 10px;
+      box-shadow: none;
+      border-radius: 5px 5px 13px 13px;
+    }
+
+    .dropdown-menu .dropdown-item {
+      color: var(--primary-light);
+      padding: 8px 20px 3px 15px;
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" href="index.html">
+      RM <span>ASSOCIATES</span>
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#mobileMenu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Desktop Menu -->
+    <div class="collapse navbar-collapse d-none d-lg-flex">
+      <ul class="navbar-nav ms-auto gap-4">
+        <li class="nav-item hover-dropdown">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+
+        <li class="nav-item hover-dropdown">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+
+        <li class="nav-item hover-dropdown">
+          <a class="nav-link dropdown-toggle" href="#"> Services </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Highway Testings</a></li>
+            <li><a class="dropdown-item" href="#">NDT Test</a></li>
+            <li><a class="dropdown-item" href="#">Concrete Testing</a></li>
+            <li><a class="dropdown-item" href="#">Structural Design</a></li>
+            <li><a class="dropdown-item" href="#">Project Management</a></li>
+            <li><a class="dropdown-item" href="#">Survey</a></li>
+            <li><a class="dropdown-item" href="#">Soil Investigation</a></li>
+            <li><a class="dropdown-item" href="#">Bitumen Testing</a></li>
+            <li><a class="dropdown-item" href="#">Pile Load Test</a></li>
+            <li><a class="dropdown-item" href="#">Structural Stability</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item hover-dropdown">
+          <a class="nav-link" href="projects.html">Projects</a>
+        </li>
+
+        <li class="nav-item hover-dropdown">
+          <a class="nav-link" href="contacts.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE OFFCANVAS -->
+<div class="offcanvas offcanvas-end mobile-canvas" id="mobileMenu">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav text-start">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About Us</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+          Services
+        </a>
+
+        <ul class="dropdown-menu text-start">
+          <li><a class="dropdown-item" href="#">Highway Testings</a></li>
+          <li><a class="dropdown-item" href="#">NDT Test</a></li>
+          <li><a class="dropdown-item" href="#">Concrete Testing</a></li>
+          <li><a class="dropdown-item" href="#">Structural Design</a></li>
+          <li><a class="dropdown-item" href="#">Project Management</a></li>
+          <li><a class="dropdown-item" href="#">Survey</a></li>
+          <li><a class="dropdown-item" href="#">Soil Investigation</a></li>
+          <li><a class="dropdown-item" href="#">Bitumen Testing</a></li>
+          <li><a class="dropdown-item" href="#">Pile Load Test</a></li>
+          <li><a class="dropdown-item" href="#">Structural Stability</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="projects.html">Projects</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="contacts.html">Contact</a>
+      </li>
+    </ul>
+  </div>
+</div>
