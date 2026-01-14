@@ -15,6 +15,12 @@
       rel="stylesheet"
     />
 
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <!-- Main CSS -->
     <!-- <link rel="stylesheet" href="css/index.css" /> -->
     <link rel="stylesheet" href="css/about.css" />
@@ -25,37 +31,48 @@
     <div include-html="navbar.html"></div>
     <main>
       <!-- ABOUT HERO -->
-      <section class="about-hero">
-        <div class="container about-hero-inner">
-          <div class="about-hero-content">
-            <span class="about-hero-subtitle">About RM Associates</span>
+      <section class="about-hero-full">
+        <img
+          src="img/About-page/hero-img3.jpg"
+          class="hero-bg"
+          alt="Engineering Team"
+        />
 
-            <h1>
-              Engineering Excellence <br />
-              Built on <span>Trust & Precision</span>
-            </h1>
+        <div class="hero-overlay"></div>
 
-            <p>
-              RM Associates is a multidisciplinary civil engineering and
-              construction consultancy delivering reliable, compliant, and
-              future-ready solutions across infrastructure projects.
-            </p>
-          </div>
+        <div class="hero-content container">
+          <span class="hero-tag">About RM Associates</span>
 
-          <div class="about-hero-image">
-            <img
-              src="img/about-hero.jpg"
-              alt="About RM Associates"
-              loading="lazy"
-            />
+          <h1>
+            Engineering Excellence <br />
+            Built on <span>Trust & Precision</span>
+          </h1>
+
+          <p>
+            RM Associates is a multidisciplinary civil engineering and
+            construction consultancy delivering reliable, compliant, and
+            future-ready solutions across infrastructure projects.
+          </p>
+
+          <div class="hero-actions">
+            <a href="contact.html" class="btn-primary">Contact Us</a>
+            <a href="projects.html" class="btn-outline">View Projects</a>
           </div>
         </div>
       </section>
+
       <!-- ================= WHO WE ARE ================= -->
       <section class="about-section">
         <div class="container about-grid">
+          <!-- Text -->
           <div class="about-text">
-            <h2>Who We Are</h2>
+            <span class="section-tag">Who We Are</span>
+
+            <h2>
+              Trusted Civil Engineering <br />
+              <span>& Testing Experts</span>
+            </h2>
+
             <p>
               RM Associates is a trusted civil engineering and construction
               consultancy delivering high-quality testing, design, and project
@@ -63,19 +80,27 @@
               precision, we support infrastructure projects from concept to
               completion.
             </p>
+
             <p>
               Our multidisciplinary expertise, experienced professionals, and
               commitment to transparency ensure long-term value for every
               project we undertake.
             </p>
+
+            <ul class="about-points">
+              <li>
+                <i class="fa-solid fa-check"></i> Certified testing laboratory
+              </li>
+              <li><i class="fa-solid fa-check"></i> Experienced engineers</li>
+              <li>
+                <i class="fa-solid fa-check"></i> Accurate & reliable reports
+              </li>
+            </ul>
           </div>
 
+          <!-- Image -->
           <div class="about-image">
-            <img
-              src="img/about-company.jpg"
-              alt="RM Associates Team"
-              loading="lazy"
-            />
+            <img src="img/About-page/hero-img.jpg" alt="RM Associates Team" />
           </div>
         </div>
       </section>
@@ -84,7 +109,7 @@
       <section class="vm-section">
         <div class="container vm-grid">
           <div class="vm-card">
-            <h3>Our Vision</h3>
+            <h3><i class="fa-solid fa-eye"></i> Our Vision</h3>
             <p>
               To be a benchmark organization in civil engineering services by
               delivering sustainable, innovative, and technically sound
@@ -93,7 +118,7 @@
           </div>
 
           <div class="vm-card">
-            <h3>Our Mission</h3>
+            <h3><i class="fa-solid fa-bullseye"></i>Our Mission</h3>
             <p>
               To provide reliable engineering services through technical
               excellence, ethical practices, and continuous improvement while
