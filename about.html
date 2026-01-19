@@ -250,6 +250,47 @@
         </div>
       </section>
     </main>
+    <!-- FIXED CTA BUTTON -->
+    <a href="#" class="fixed-cta animated-btn" id="openModal"> Get Quote </a>
+    <!-- MODAL -->
+    <div class="quote-modal" id="quoteModal">
+      <div class="modal-box">
+        <span class="close-modal" id="closeModal">&times;</span>
+
+        <h2>Get A Quote</h2>
+        <p>
+          Your email address will not be published. Required fields are marked *
+        </p>
+
+        <form id="quoteForm">
+          <div class="form-row">
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Your Name *"
+              required
+            />
+            <input
+              type="tel"
+              name="user_phone"
+              placeholder="Mobile Number *"
+              required
+            />
+          </div>
+
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Email *"
+            required
+          />
+
+          <textarea name="message" placeholder="Message..." rows="5"></textarea>
+
+          <button type="submit" class="modal-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
 
     <!-- about page content end  -->
 

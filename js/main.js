@@ -191,83 +191,182 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".carousel-track");
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
-  const dotsContainer = document.querySelector(".carousel-dots");
+  const dotsBox = document.querySelector(".carousel-dots");
 
-  const originalCards = Array.from(track.children);
+  const originals = [...track.children];
+  originals.forEach((c) => track.appendChild(c.cloneNode(true)));
 
-  /* DUPLICATE FOR LOOP */
-  originalCards.forEach((card) => {
-    track.appendChild(card.cloneNode(true));
-  });
+  let index = 0,
+    autoTimer;
+  const DELAY = 2000;
+  const cards = [...track.children];
 
-  const cards = Array.from(track.children);
-  let index = 0;
+  /* width */
+  const cardW = () => {
+    const s = getComputedStyle(cards[0]);
+    return cards[0].offsetWidth + parseFloat(s.marginRight);
+  };
 
-  function cardWidth() {
-    const style = getComputedStyle(cards[0]);
-    return cards[0].offsetWidth + parseFloat(style.marginRight);
+  /* move */
+  function move(anim = true) {
+    track.style.transition = anim ? "0.45s ease" : "none";
+    track.style.transform = `translateX(-${index * cardW()}px)`;
   }
 
-  function update(animate = true) {
-    track.style.transition = animate ? "transform 0.45s ease" : "none";
-    track.style.transform = `translateX(-${index * cardWidth()}px)`;
-  }
-
-  /* NEXT */
+  /* next */
   function nextSlide() {
     index++;
-    update(true);
-
-    if (index >= originalCards.length * 2) {
+    move();
+    if (index >= originals.length * 2) {
       setTimeout(() => {
-        track.style.transition = "none";
-        index = index % originalCards.length;
-        update(false);
-      }, 450);
+        index %= originals.length;
+        move(false);
+      }, 390);
     }
   }
 
-  /* PREV */
+  /* prev */
   function prevSlide() {
     index--;
-    update(true);
-
+    move();
     if (index < 0) {
       setTimeout(() => {
-        track.style.transition = "none";
-        index = originalCards.length - 1;
-        update(false);
-      }, 450);
+        index = originals.length - 1;
+        move(false);
+      }, 390);
     }
   }
 
-  next.addEventListener("click", nextSlide);
-  prev.addEventListener("click", prevSlide);
+  /* autoplay */
+  function startAuto() {
+    clearTimeout(autoTimer);
+    autoTimer = setTimeout(() => {
+      nextSlide();
+      startAuto();
+    }, DELAY);
+  }
+  function stopAuto() {
+    clearTimeout(autoTimer);
+  }
 
-  /* DOTS */
-  originalCards.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => {
+  /* arrows */
+  next.onclick = () => {
+    stopAuto();
+    nextSlide();
+    startAuto();
+  };
+  prev.onclick = () => {
+    stopAuto();
+    prevSlide();
+    startAuto();
+  };
+
+  /* dots */
+  originals.forEach((_, i) => {
+    const d = document.createElement("span");
+    d.onclick = () => {
+      stopAuto();
       index = i;
-      update(true);
-    });
-    dotsContainer.appendChild(dot);
+      move();
+      startAuto();
+    };
+    dotsBox.appendChild(d);
   });
 
   function updateDots() {
-    const dots = dotsContainer.querySelectorAll("span");
-    dots.forEach((d) => d.classList.remove("active"));
-    dots[index % originalCards.length].classList.add("active");
+    dotsBox
+      .querySelectorAll("span")
+      .forEach((d, i) =>
+        d.classList.toggle("active", i === index % originals.length)
+      );
   }
 
-  track.addEventListener("transitionend", updateDots);
+  /* drag */
+  let startX = 0,
+    dragging = false,
+    prevX = 0;
+
+  function pos(e) {
+    return e.touches ? e.touches[0].clientX : e.pageX;
+  }
+
+  function start(e) {
+    dragging = true;
+    startX = pos(e);
+    prevX = -index * cardW();
+    track.style.transition = "none";
+  }
+  function moveDrag(e) {
+    if (!dragging) return;
+    track.style.transform = `translateX(${prevX + pos(e) - startX}px)`;
+  }
+  function end() {
+    dragging = false;
+    const diff =
+      parseInt(track.style.transform.replace(/[^-0-9]/g, "")) - prevX;
+    diff < -80 ? nextSlide() : diff > 80 ? prevSlide() : move();
+  }
+
+  /* events */
+  track.ontransitionend = updateDots;
+
+  ["touchstart", "mousedown"].forEach((e) => track.addEventListener(e, start));
+  ["touchmove", "mousemove"].forEach((e) =>
+    track.addEventListener(e, moveDrag)
+  );
+  ["touchend", "mouseup", "mouseleave"].forEach((e) =>
+    track.addEventListener(e, end)
+  );
+
+  window.onresize = () => move(false);
 });
 
+// CTA MODAL POPUP
+const openBtn = document.getElementById("openModal");
+const modal = document.getElementById("quoteModal");
+const closeBtn = document.getElementById("closeModal");
+
+openBtn.onclick = () => modal.classList.add("active");
+closeBtn.onclick = () => modal.classList.remove("active");
+
+window.onclick = (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+  }
+};
+
+// EMAIL_JS
+(function () {
+  // replace with real key
+})();
+
+document.getElementById("quoteForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "YOUR_SERVICE_ID", // replace
+      "YOUR_TEMPLATE_ID", // replace
+      this
+    )
+    .then(
+      function () {
+        alert("Message sent successfully!");
+        document.getElementById("quoteForm").reset();
+      },
+      function (error) {
+        alert("Failed to send message. Try again!");
+        console.log(error);
+      }
+    );
+});
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   includeHTML(() => {
     // 🔥 RUN AFTER HEADER LOADS
-    update(false);
+    emailjs.init("YOUR_PUBLIC_KEY");
+    move(false);
+    startAuto();
     setFooterYear();
   });
 });
