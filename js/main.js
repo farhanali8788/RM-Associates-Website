@@ -146,7 +146,7 @@ function initProcessSlider() {
   let index = 0;
 
   function updateSlider() {
-    const slideWidth = slides[0].offsetWidth + 30; // 30 is the gap/margin
+    const slideWidth = slides[0].offsetWidth + 0; // 30 is the gap/margin
     track.style.transform = `translateX(-${index * slideWidth}px)`;
 
     // Update progress bar width
@@ -191,7 +191,7 @@ function initTestimonialSlider() {
   let index = 0;
 
   function move() {
-    const cardWidth = cards[0].offsetWidth + 20; // 20 is the gap
+    const cardWidth = cards[0].offsetWidth + 0; // 20 is the gap
     track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
