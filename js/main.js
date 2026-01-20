@@ -10,9 +10,7 @@ function includeHTML(callback) {
 
     fetch(file)
       .then((res) => {
-        if (!res.ok) {
-          throw new Error(`Failed to load: ${file}`);
-        }
+        if (!res.ok) throw new Error("Failed");
         return res.text();
       })
       .then((data) => {
@@ -22,31 +20,96 @@ function includeHTML(callback) {
         remaining--;
         if (remaining === 0 && callback) callback();
       })
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         el.innerHTML = "Include failed.";
       });
   });
 }
 
-/* FOOTER YEAR */
+/* ================= NAVBAR LINKS ================= */
+function fixNavbarLinks() {
+  const isServicePage = location.pathname.includes("/services/");
+  const base = isServicePage ? "../" : "./";
+
+  const set = (id, path) => {
+    const el = document.getElementById(id);
+    if (el) el.href = base + path;
+  };
+
+  // DESKTOP
+  set("navHome", "index.html");
+  set("navHome2", "index.html");
+  set("navAbout", "about.html");
+  set("navServices", "services/index.html");
+  set("navProjects", "projects.html");
+  set("navContact", "contacts.html");
+
+  set("navHighway", "services/highway-testing.html");
+  set("navBitumen", "services/bitumen-testing.html");
+  set("navNdt", "services/ndt-testing.html");
+  set("navPileLoadTest", "services/pile-load-testing.html");
+  set("navConcreteTesting", "services/concrete-testing.html");
+  set("navProjectManagement", "services/project-management.html");
+  set("navSoilInvestigation", "services/soil-investigation.html");
+  set("navStructuralDesign", "services/structural-design.html");
+  set("navStructuralStability", "services/structural-stability.html");
+  set("navSurvey", "services/survey.html");
+
+  // MOBILE
+  set("mbnavHome2", "index.html");
+  set("mbnavAbout", "about.html");
+  set("mbnavServices", "services/index.html");
+  set("mbnavProjects", "projects.html");
+  set("mbnavContact", "contacts.html");
+
+  set("mbnavHighway", "services/highway-testing.html");
+  set("mbnavBitumen", "services/bitumen-testing.html");
+  set("mbnavNdt", "services/ndt-testing.html");
+  set("mbnavPileLoadTest", "services/pile-load-testing.html");
+  set("mbnavConcreteTesting", "services/concrete-testing.html");
+  set("mbnavProjectManagement", "services/project-management.html");
+  set("mbnavSoilInvestigation", "services/soil-investigation.html");
+  set("mbnavStructuralDesign", "services/structural-design.html");
+  set("mbnavStructuralStability", "services/structural-stability.html");
+  set("mbnavSurvey", "services/survey.html");
+}
+
+/* ================= FOOTER LINKS ================= */
+function fixFooterLinks() {
+  const isServicePage = location.pathname.includes("/services/");
+  const base = isServicePage ? "../" : "./";
+
+  const set = (id, path) => {
+    const el = document.getElementById(id);
+    if (el) el.href = base + path;
+  };
+
+  set("ftAbout", "about.html");
+  set("ftServices", "services/index.html");
+  set("ftProjects", "projects.html");
+  set("ftContact", "contacts.html");
+}
+
+/* ================= FOOTER YEAR ================= */
 function setFooterYear() {
   const year = document.getElementById("currentYear");
   if (year) year.textContent = new Date().getFullYear();
 }
-/* HERO SLIDER */
 
+/* ================= HERO SLIDER ================= */
 let slides = document.querySelectorAll(".slide");
 let dots = document.querySelectorAll(".dot");
 let index = 0;
 
 function showSlide() {
+  if (!slides.length) return;
+
   slides.forEach((s) => s.classList.remove("active"));
   dots.forEach((d) => d.classList.remove("active"));
 
   slides[index].classList.add("active");
-  slides[index].querySelector(".hero-content").classList.add("animate");
-  dots[index].classList.add("active");
+  slides[index].querySelector(".hero-content")?.classList.add("animate");
+  dots[index]?.classList.add("active");
 }
 
 function next() {
@@ -67,99 +130,26 @@ if (nextBtn && prevBtn && slides.length) {
   prevBtn.onclick = prev;
   setInterval(next, 6000);
 }
+
 function goSlide(i) {
   index = i;
   showSlide();
 }
 
-/* PROCESS SLIDER */
-
-let processSlides = document.querySelectorAll(".process-slide");
-let processIndex = 0;
-let progressBar = document.querySelector(".process-progress span");
-
-function showProcessSlide() {
-  const track = document.querySelector(".process-track");
-  track.style.transform = `translateX(-${processIndex * 100}%)`;
-
-  /* update progress */
-  let percent = ((processIndex + 1) / processSlides.length) * 100;
-  progressBar.style.width = percent + "%";
-}
-
-function nextProcess() {
-  processIndex = (processIndex + 1) % processSlides.length;
-  showProcessSlide();
-}
-
-function prevProcess() {
-  processIndex =
-    (processIndex - 1 + processSlides.length) % processSlides.length;
-  showProcessSlide();
-}
-
-const processNextBtn = document.querySelector(".process-btn.next");
-const processPrevBtn = document.querySelector(".process-btn.prev");
-
-if (processNextBtn && processPrevBtn && processSlides.length) {
-  processNextBtn.onclick = nextProcess;
-  processPrevBtn.onclick = prevProcess;
-
-  setInterval(nextProcess, 6000);
-}
-
-/* TESTIMONIAL SLIDER */
-
-let testimonialSlides = document.querySelectorAll(".testimonial-card");
-let testimonialIndex = 0;
-let testimonialTrack = document.querySelector(".ts-track");
-
-function showTestimonial() {
-  let slideWidth = testimonialSlides[0].offsetWidth;
-  testimonialTrack.style.transform = `translateX(-${
-    testimonialIndex * slideWidth
-  }px)`;
-}
-
-function nextTestimonial() {
-  testimonialIndex = (testimonialIndex + 1) % testimonialSlides.length;
-  showTestimonial();
-}
-
-function prevTestimonial() {
-  testimonialIndex =
-    (testimonialIndex - 1 + testimonialSlides.length) %
-    testimonialSlides.length;
-  showTestimonial();
-}
-
-const testimonialNextBtn = document.querySelector(".ts-btn.next");
-const testimonialPrevBtn = document.querySelector(".ts-btn.prev");
-
-if (testimonialNextBtn && testimonialPrevBtn && testimonialSlides.length) {
-  testimonialNextBtn.onclick = nextTestimonial;
-  testimonialPrevBtn.onclick = prevTestimonial;
-
-  /* AUTO SLIDE */
-  setInterval(nextTestimonial, 5000);
-}
-
-// FAQ SECTION
+/* ================= FAQ ================= */
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
     const item = btn.parentElement;
 
     document.querySelectorAll(".faq-item").forEach((faq) => {
-      if (faq !== item) {
-        faq.classList.remove("active");
-      }
+      if (faq !== item) faq.classList.remove("active");
     });
 
     item.classList.toggle("active");
   });
 });
 
-// ABOUT DATA COUNTER
+/* ================= COUNTERS ================= */
 const counters = document.querySelectorAll(".counter");
 let counterStarted = false;
 
@@ -189,15 +179,16 @@ window.addEventListener("scroll", () => {
   const section = document.querySelector(".stats-section");
   if (!section) return;
 
-  const pos = section.getBoundingClientRect().top;
-  if (pos < window.innerHeight - 150) {
+  if (section.getBoundingClientRect().top < window.innerHeight - 150) {
     startCount();
   }
 });
 
-// SERVICES CARDS
+/* ================= SERVICES CAROUSEL SAFE ================= */
 document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".carousel-track");
+  if (!track) return; // FIX
+
   const prev = document.querySelector(".prev");
   const next = document.querySelector(".next");
   const dotsBox = document.querySelector(".carousel-dots");
@@ -210,19 +201,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const DELAY = 2000;
   const cards = [...track.children];
 
-  /* width */
   const cardW = () => {
     const s = getComputedStyle(cards[0]);
     return cards[0].offsetWidth + parseFloat(s.marginRight);
   };
 
-  /* move */
   function move(anim = true) {
     track.style.transition = anim ? "0.45s ease" : "none";
     track.style.transform = `translateX(-${index * cardW()}px)`;
   }
 
-  /* next */
   function nextSlide() {
     index++;
     move();
@@ -234,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* prev */
   function prevSlide() {
     index--;
     move();
@@ -246,7 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* autoplay */
   function startAuto() {
     clearTimeout(autoTimer);
     autoTimer = setTimeout(() => {
@@ -254,287 +240,25 @@ document.addEventListener("DOMContentLoaded", () => {
       startAuto();
     }, DELAY);
   }
-  function stopAuto() {
-    clearTimeout(autoTimer);
-  }
 
-  /* arrows */
   next.onclick = () => {
-    stopAuto();
     nextSlide();
     startAuto();
   };
+
   prev.onclick = () => {
-    stopAuto();
     prevSlide();
     startAuto();
   };
 
-  /* dots */
-  originals.forEach((_, i) => {
-    const d = document.createElement("span");
-    d.onclick = () => {
-      stopAuto();
-      index = i;
-      move();
-      startAuto();
-    };
-    dotsBox.appendChild(d);
-  });
-
-  function updateDots() {
-    dotsBox
-      .querySelectorAll("span")
-      .forEach((d, i) =>
-        d.classList.toggle("active", i === index % originals.length),
-      );
-  }
-
-  /* drag */
-  let startX = 0,
-    dragging = false,
-    prevX = 0;
-
-  function pos(e) {
-    return e.touches ? e.touches[0].clientX : e.pageX;
-  }
-
-  function start(e) {
-    dragging = true;
-    startX = pos(e);
-    prevX = -index * cardW();
-    track.style.transition = "none";
-  }
-  function moveDrag(e) {
-    if (!dragging) return;
-    track.style.transform = `translateX(${prevX + pos(e) - startX}px)`;
-  }
-  function end() {
-    dragging = false;
-    const diff =
-      parseInt(track.style.transform.replace(/[^-0-9]/g, "")) - prevX;
-    diff < -80 ? nextSlide() : diff > 80 ? prevSlide() : move();
-  }
-
-  /* events */
-  track.ontransitionend = updateDots;
-
-  ["touchstart", "mousedown"].forEach((e) => track.addEventListener(e, start));
-  ["touchmove", "mousemove"].forEach((e) =>
-    track.addEventListener(e, moveDrag),
-  );
-  ["touchend", "mouseup", "mouseleave"].forEach((e) =>
-    track.addEventListener(e, end),
-  );
-
   window.onresize = () => move(false);
-});
-
-// CTA MODAL POPUP
-const openBtn = document.getElementById("openModal");
-const modal = document.getElementById("quoteModal");
-const closeBtn = document.getElementById("closeModal");
-
-openBtn.onclick = () => modal.classList.add("active");
-closeBtn.onclick = () => modal.classList.remove("active");
-
-window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
-  }
-};
-
-// EMAIL_JS
-(function () {
-  // replace with real key
-})();
-
-document.getElementById("quoteForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  emailjs
-    .sendForm(
-      "YOUR_SERVICE_ID", // replace
-      "YOUR_TEMPLATE_ID", // replace
-      this,
-    )
-    .then(
-      function () {
-        alert("Message sent successfully!");
-        document.getElementById("quoteForm").reset();
-      },
-      function (error) {
-        alert("Failed to send message. Try again!");
-        console.log(error);
-      },
-    );
-});
-
-// individual services images slider
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".sliderContainer").forEach((sliderContainer) => {
-    const slider = sliderContainer.querySelector(".slider");
-    let slides = [...slider.querySelectorAll(".slide")];
-    const nextBtn = sliderContainer.querySelector(".next");
-    const prevBtn = sliderContainer.querySelector(".prev");
-    const dotsContainer = sliderContainer.querySelector(".dots");
-
-    let currentIndex = 1;
-    let isAnimating = false;
-
-    /* CLONE FIRST & LAST */
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
-
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
-
-    slides = [...slider.querySelectorAll(".slide")];
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    /* CREATE DOTS */
-    slides.forEach((slide, index) => {
-      if (index === 0 || index === slides.length - 1) return;
-
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (index === currentIndex) dot.classList.add("active");
-      dotsContainer.appendChild(dot);
-    });
-
-    const allDots = [...dotsContainer.querySelectorAll(".dot")];
-
-    function updateDots() {
-      allDots.forEach((dot) => dot.classList.remove("active"));
-
-      if (currentIndex === 0) {
-        allDots[allDots.length - 1].classList.add("active");
-      } else if (currentIndex === slides.length - 1) {
-        allDots[0].classList.add("active");
-      } else {
-        allDots[currentIndex - 1].classList.add("active");
-      }
-    }
-
-    function updateSlide() {
-      slider.style.transition = "0.5s";
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateDots();
-
-      setTimeout(() => {
-        if (currentIndex >= slides.length - 1) {
-          slider.style.transition = "none";
-          currentIndex = 1;
-          slider.style.transform = `translateX(-100%)`;
-        }
-
-        if (currentIndex <= 0) {
-          slider.style.transition = "none";
-          currentIndex = slides.length - 2;
-          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-      }, 500);
-    }
-
-    function nextSlide() {
-      if (isAnimating) return;
-      isAnimating = true;
-      currentIndex++;
-      updateSlide();
-      setTimeout(() => (isAnimating = false), 500);
-    }
-
-    function prevSlide() {
-      if (isAnimating) return;
-      isAnimating = true;
-      currentIndex--;
-      updateSlide();
-      setTimeout(() => (isAnimating = false), 500);
-    }
-
-    function goToSlide(index) {
-      if (isAnimating) return;
-      isAnimating = true;
-      currentIndex = index + 1;
-      updateSlide();
-      setTimeout(() => (isAnimating = false), 500);
-    }
-
-    nextBtn.addEventListener("click", nextSlide);
-    prevBtn.addEventListener("click", prevSlide);
-
-    allDots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        goToSlide(index);
-      });
-    });
-  });
 });
 
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   includeHTML(() => {
-    // 🔥 RUN AFTER HEADER LOADS
-    const isServicePage = location.pathname.includes("/services/");
-
-    const base = isServicePage ? "../" : "./";
-
-    document.getElementById("navHome").href = base + "index.html";
-    document.getElementById("navHome2").href = base + "index.html";
-    document.getElementById("navAbout").href = base + "about.html";
-    document.getElementById("navServices").href = base + "services/index.html";
-    document.getElementById("navProjects").href = base + "projects.html";
-    document.getElementById("navContact").href = base + "contacts.html";
-
-    document.getElementById("navHighway").href =
-      base + "services/highway-testing.html";
-    document.getElementById("navBitumen").href =
-      base + "services/bitumen-testing.html";
-    document.getElementById("navNdt").href = base + "services/ndt-testing.html";
-    document.getElementById("navPileLoadTest").href =
-      base + "services/pile-load-testing.html";
-    document.getElementById("navConcreteTesting").href =
-      base + "services/concrete-testing.html";
-    document.getElementById("navProjectManagement").href =
-      base + "services/project-management.html";
-    document.getElementById("navSoilInvestigation").href =
-      base + "services/soil-investigation.html";
-    document.getElementById("navStructuralDesign").href =
-      base + "services/structural-design.html";
-    document.getElementById("navStructuralStability").href =
-      base + "services/structural-stability.html";
-    document.getElementById("navSurvey").href = base + "services/survey.html";
-
-    /* MOBILE */
-    document.getElementById("mbnavHome2").href = base + "index.html";
-    document.getElementById("mbnavAbout").href = base + "about.html";
-    document.getElementById("mbnavServices").href =
-      base + "services/index.html";
-    document.getElementById("mbnavProjects").href = base + "projects.html";
-    document.getElementById("mbnavContact").href = base + "contacts.html";
-
-    document.getElementById("mbnavHighway").href =
-      base + "services/highway-testing.html";
-    document.getElementById("mbnavBitumen").href =
-      base + "services/bitumen-testing.html";
-    document.getElementById("mbnavNdt").href =
-      base + "services/ndt-testing.html";
-    document.getElementById("mbnavPileLoadTest").href =
-      base + "services/pile-load-testing.html";
-    document.getElementById("mbnavConcreteTesting").href =
-      base + "services/concrete-testing.html";
-    document.getElementById("mbnavProjectManagement").href =
-      base + "services/project-management.html";
-    document.getElementById("mbnavSoilInvestigation").href =
-      base + "services/soil-investigation.html";
-    document.getElementById("mbnavStructuralDesign").href =
-      base + "services/structural-design.html";
-    document.getElementById("mbnavStructuralStability").href =
-      base + "services/structural-stability.html";
-    document.getElementById("mbnavSurvey").href = base + "services/survey.html";
-    emailjs.init("YOUR_PUBLIC_KEY");
-    move(false);
-    startAuto();
+    fixNavbarLinks();
+    fixFooterLinks();
     setFooterYear();
   });
 });
