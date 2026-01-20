@@ -631,7 +631,7 @@ a:focus-visible {
 .highway-hero {
   position: relative;
   min-height: 90vh;
-  background: url("/img/services-page/highway-testing2.jpg") center/cover
+  background: url("../img/services-page/highway-testing2.jpg") center/cover
     no-repeat;
   display: flex;
   align-items: center;
