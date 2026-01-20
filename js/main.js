@@ -475,6 +475,63 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   includeHTML(() => {
     // 🔥 RUN AFTER HEADER LOADS
+    const isServicePage = location.pathname.includes("/services/");
+
+    const base = isServicePage ? "../" : "./";
+
+    document.getElementById("navHome").href = base + "index.html";
+    document.getElementById("navHome2").href = base + "index.html";
+    document.getElementById("navAbout").href = base + "about.html";
+    document.getElementById("navServices").href = base + "services/index.html";
+    document.getElementById("navProjects").href = base + "projects.html";
+    document.getElementById("navContact").href = base + "contacts.html";
+
+    document.getElementById("navHighway").href =
+      base + "services/highway-testing.html";
+    document.getElementById("navBitumen").href =
+      base + "services/bitumen-testing.html";
+    document.getElementById("navNdt").href = base + "services/ndt-testing.html";
+    document.getElementById("navPileLoadTest").href =
+      base + "services/pile-load-testing.html";
+    document.getElementById("navConcreteTesting").href =
+      base + "services/concrete-testing.html";
+    document.getElementById("navProjectManagement").href =
+      base + "services/project-management.html";
+    document.getElementById("navSoilInvestigation").href =
+      base + "services/soil-investigation.html";
+    document.getElementById("navStructuralDesign").href =
+      base + "services/structural-design.html";
+    document.getElementById("navStructuralStability").href =
+      base + "services/structural-stability.html";
+    document.getElementById("navSurvey").href = base + "services/survey.html";
+
+    /* MOBILE */
+    document.getElementById("mbnavHome2").href = base + "index.html";
+    document.getElementById("mbnavAbout").href = base + "about.html";
+    document.getElementById("mbnavServices").href =
+      base + "services/index.html";
+    document.getElementById("mbnavProjects").href = base + "projects.html";
+    document.getElementById("mbnavContact").href = base + "contacts.html";
+
+    document.getElementById("mbnavHighway").href =
+      base + "services/highway-testing.html";
+    document.getElementById("mbnavBitumen").href =
+      base + "services/bitumen-testing.html";
+    document.getElementById("mbnavNdt").href =
+      base + "services/ndt-testing.html";
+    document.getElementById("mbnavPileLoadTest").href =
+      base + "services/pile-load-testing.html";
+    document.getElementById("mbnavConcreteTesting").href =
+      base + "services/concrete-testing.html";
+    document.getElementById("mbnavProjectManagement").href =
+      base + "services/project-management.html";
+    document.getElementById("mbnavSoilInvestigation").href =
+      base + "services/soil-investigation.html";
+    document.getElementById("mbnavStructuralDesign").href =
+      base + "services/structural-design.html";
+    document.getElementById("mbnavStructuralStability").href =
+      base + "services/structural-stability.html";
+    document.getElementById("mbnavSurvey").href = base + "services/survey.html";
     emailjs.init("YOUR_PUBLIC_KEY");
     move(false);
     startAuto();
