@@ -97,43 +97,81 @@ function setFooterYear() {
 }
 
 /* ================= HERO SLIDER ================= */
-let slides = document.querySelectorAll(".slide");
-let dots = document.querySelectorAll(".dot");
-let index = 0;
+/* ================= TESTING PROCESS SLIDER ================= */
+function initProcessSlider() {
+  const track = document.querySelector(".process-track");
+  const slides = document.querySelectorAll(".process-slide");
+  const nextBtn = document.querySelector(".process-btn.next");
+  const prevBtn = document.querySelector(".process-btn.prev");
+  const progress = document.querySelector(".process-progress span");
 
-function showSlide() {
-  if (!slides.length) return;
+  if (!track || slides.length === 0) return;
 
-  slides.forEach((s) => s.classList.remove("active"));
-  dots.forEach((d) => d.classList.remove("active"));
+  let index = 0;
 
-  slides[index].classList.add("active");
-  slides[index].querySelector(".hero-content")?.classList.add("animate");
-  dots[index]?.classList.add("active");
+  function updateSlider() {
+    const slideWidth = slides[0].offsetWidth + 30; // 30 is the gap/margin
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+    // Update progress bar width
+    const progressWidth = ((index + 1) / slides.length) * 100;
+    if (progress) progress.style.width = `${progressWidth}%`;
+  }
+
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      if (index < slides.length - 1) {
+        index++;
+        updateSlider();
+      } else {
+        index = 0; // Loop back to start
+        updateSlider();
+      }
+    };
+  }
+
+  if (prevBtn) {
+    prevBtn.onclick = () => {
+      if (index > 0) {
+        index--;
+        updateSlider();
+      }
+    };
+  }
+
+  // Initialize progress bar
+  updateSlider();
 }
 
-function next() {
-  index = (index + 1) % slides.length;
-  showSlide();
-}
+/* ================= TESTIMONIAL SLIDER ================= */
+function initTestimonialSlider() {
+  const track = document.querySelector(".ts-track");
+  const cards = document.querySelectorAll(".testimonial-card");
+  const nextBtn = document.querySelector(".ts-btn.next");
+  const prevBtn = document.querySelector(".ts-btn.prev");
 
-function prev() {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide();
-}
+  if (!track || cards.length === 0) return;
 
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
+  let index = 0;
 
-if (nextBtn && prevBtn && slides.length) {
-  nextBtn.onclick = next;
-  prevBtn.onclick = prev;
-  setInterval(next, 6000);
-}
+  function move() {
+    const cardWidth = cards[0].offsetWidth + 20; // 20 is the gap
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
 
-function goSlide(i) {
-  index = i;
-  showSlide();
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      index = (index + 1) % cards.length;
+      move();
+    };
+  }
+
+  if (prevBtn) {
+    prevBtn.onclick = () => {
+      index = (index - 1 + cards.length) % cards.length;
+      move();
+    };
+  }
 }
 
 /* ================= FAQ ================= */
@@ -260,5 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fixNavbarLinks();
     fixFooterLinks();
     setFooterYear();
+    initProcessSlider();
+    initTestimonialSlider();
   });
 });
