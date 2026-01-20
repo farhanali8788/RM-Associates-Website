@@ -9,13 +9,22 @@ function includeHTML(callback) {
     const file = el.getAttribute("include-html");
 
     fetch(file)
-      .then((res) => res.text())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Failed to load: ${file}`);
+        }
+        return res.text();
+      })
       .then((data) => {
         el.innerHTML = data;
         el.removeAttribute("include-html");
 
         remaining--;
         if (remaining === 0 && callback) callback();
+      })
+      .catch((err) => {
+        console.error(err);
+        el.innerHTML = "Include failed.";
       });
   });
 }
