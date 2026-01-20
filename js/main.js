@@ -96,7 +96,43 @@ function setFooterYear() {
   if (year) year.textContent = new Date().getFullYear();
 }
 
-/* ================= HERO SLIDER ================= */
+/* ================= HERO SLIDER (Home Page) ================= */
+function initHeroSlider() {
+  const heroSection = document.querySelector(".hero-slider");
+  if (!heroSection) return;
+
+  const slides = heroSection.querySelectorAll(".slide");
+  const dots = heroSection.querySelectorAll(".dot");
+  const nextBtn = heroSection.querySelector(".next");
+  const prevBtn = heroSection.querySelector(".prev");
+  let heroIndex = 0;
+
+  function showSlide(n) {
+    heroIndex = (n + slides.length) % slides.length;
+    slides.forEach((s) => s.classList.remove("active"));
+    dots.forEach((d) => d.classList.remove("active"));
+
+    slides[heroIndex].classList.add("active");
+    dots[heroIndex].classList.add("active");
+
+    // Trigger animation
+    const content = slides[heroIndex].querySelector(".hero-content");
+    if (content) {
+      content.classList.remove("animate");
+      void content.offsetWidth; // Trigger reflow
+      content.classList.add("animate");
+    }
+  }
+
+  if (nextBtn) nextBtn.onclick = () => showSlide(heroIndex + 1);
+  if (prevBtn) prevBtn.onclick = () => showSlide(heroIndex - 1);
+
+  // Global function for the onclick="goSlide(n)" in your HTML dots
+  window.goSlide = (n) => showSlide(n);
+
+  setInterval(() => showSlide(heroIndex + 1), 6000);
+}
+
 /* ================= TESTING PROCESS SLIDER ================= */
 function initProcessSlider() {
   const track = document.querySelector(".process-track");
@@ -298,6 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fixNavbarLinks();
     fixFooterLinks();
     setFooterYear();
+    initHeroSlider();
     initProcessSlider();
     initTestimonialSlider();
   });
