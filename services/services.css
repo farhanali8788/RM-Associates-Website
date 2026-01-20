@@ -123,7 +123,9 @@ a:focus-visible {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 25px rgba(56, 189, 248, 0.5),
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.6),
+    0 0 25px rgba(56, 189, 248, 0.5),
     0 0 50px rgba(30, 144, 255, 0.4);
 }
 
@@ -141,7 +143,8 @@ a:focus-visible {
 }
 .btn-outline:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.4),
     0 0 20px rgba(255, 255, 255, 0.25);
 }
 
@@ -170,7 +173,8 @@ a:focus-visible {
     backdrop-filter: blur(5px);
     padding: 28px 22px;
     border-radius: 18px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35),
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.35),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
     animation: slideUp 0.8s ease forwards;
   }
@@ -395,7 +399,7 @@ a:focus-visible {
   flex-wrap: wrap;
 }
 
-.cta-btn {
+.cta-btnn {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -408,24 +412,24 @@ a:focus-visible {
 }
 
 /* Primary */
-.cta-btn.primary {
+.cta-btnn.primary {
   background: #fff;
   color: #0ea5e9;
 }
 
-.cta-btn.primary:hover {
+.cta-btnn.primary:hover {
   background: #e0f2fe;
   transform: translateY(-3px);
 }
 
 /* Secondary */
-.cta-btn.secondary {
+.cta-btnn.secondary {
   background: transparent;
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
-.cta-btn.secondary:hover {
+.cta-btnn.secondary:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-3px);
 }
@@ -624,93 +628,482 @@ a:focus-visible {
 /* --------HIGHWAY TESTINGS-------- */
 
 /* HERO SECTION */
-
 .highway-hero {
+  position: relative;
   min-height: 90vh;
+  background: url("/img/services-page/highway-testing2.jpg") center/cover
+    no-repeat;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 10%;
-  background: url("/img/services-page/highway-testing-hero3.jpg") repeat,
-    linear-gradient(135deg, #d4e6f5, #ffffff);
-  gap: 50px;
+  overflow: hidden;
 }
 
-.hero-content {
-  max-width: 520px;
+/* Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.15)
+  );
 }
 
-.highway-hero h1 {
-  font-size: 46px;
-  color: #0099ff;
-  margin-bottom: 16px;
+/* Breadcrumb */
+.breadcrumb {
+  position: absolute;
+  top: 110px;
+  left: 10%;
+  z-index: 2;
+  font-size: 18px;
+  color: #fff;
+  gap: 10px;
 }
 
-.highway-hero p {
-  font-size: 16px;
-  color: #555;
+.breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+.breadcrumb a:hover {
+  color: #00b3ff;
+}
+
+.breadcrumb .active {
+  color: #00b3ff;
+  font-weight: 600;
+}
+
+/* Inner wrapper */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+/* Content */
+.hero-content h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: var(--white);
   line-height: 1.7;
-  margin-bottom: 30px;
+  opacity: 0.9;
+  margin-bottom: 35px;
 }
 
+/* Buttons */
 .hero-btns {
   display: flex;
   gap: 16px;
+  margin-bottom: 50px;
 }
 
-/* Buttons (same style as homepage) */
 .hero-btn {
-  background: #0099ff;
-  color: #fff;
   padding: 14px 34px;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
-.hero-btn:hover {
+.hero-btn.primary {
+  background: #0099ff;
+  color: #fff;
+}
+
+.hero-btn.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 153, 255, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 153, 255, 0.45);
 }
 
 .hero-btn.outline {
-  background: transparent;
-  border: 2px solid #0099ff;
-  color: #0099ff;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
-.hero-image img {
-  width: 100%;
-  max-width: 640px;
+.hero-btn.outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Services */
+.hero-services-wrapper {
+  margin-top: 20px;
+}
+
+.services-label {
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 20px;
+  letter-spacing: 1px;
+  opacity: 0.99;
+  margin-bottom: 14px;
+}
+
+.hero-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-services a {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 8px 18px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: 0.3s;
+}
+
+.hero-services a:hover {
+  background: rgba(0, 153, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Scroll */
+.scroll-wrapper {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.scroll-text {
+  display: block;
+  font-size: 15px;
+  color: var(--white);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.97;
+}
+
+/* existing animation */
+.scroll-indicator {
+  width: 28px;
+  height: 48px;
+  border: 2px solid #fff;
   border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-  transition: 0.5s;
+  position: relative;
+  margin: auto;
 }
 
-.hero-image img:hover {
-  transform: scale(1.05);
+.scroll-indicator::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  animation: scrollAnim 1.5s infinite;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
+@keyframes scrollAnim {
+  0% {
+    top: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 30px;
+    opacity: 0;
+  }
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
   .highway-hero {
-    padding: 60px 8%;
+    padding: 120px 6% 130px;
+    align-items: flex-start;
   }
 
-  .highway-hero h1 {
-    font-size: 36px;
+  /* Breadcrumb */
+  .breadcrumb {
+    top: 80px;
+    align-items: center;
+    left: 17%;
+    font-size: 16px;
   }
+
+  .hero-inner {
+    max-width: 100%;
+  }
+
+  /* Text */
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  /* Buttons */
+  .hero-btns {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Services section */
+  .hero-services-wrapper {
+    position: static;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .hero-services {
+    justify-content: center;
+  }
+
+  .hero-services span {
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+
+  /* Scroll indicator */
+  /* .scroll-wrapper {
+    margin: 8px;
+  } */
+  .scroll-indicator {
+    bottom: 5px;
+  }
+}
+
+/* INDIVIDUAL SERVICES SECTION */
+
+.highway-services-section {
+  margin: 100px 50px;
+}
+
+.service-section {
+  margin-bottom: 100px;
+}
+
+/* Title */
+.service-title {
+  font-size: 34px;
+  color: var(--primary);
+  margin: 0 auto 24px;
+  max-width: 1100px;
+}
+
+/* Card */
+.service-card-new {
+  background: #fff;
+  padding: 50px 60px;
+  max-width: 1320px;
+  margin: auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.sliderContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  max-width: 1000px;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+/* arrows */
+.arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 15px;
+}
+
+.arrows button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.arrows button:hover {
+  background: #0099ff;
+}
+
+/* dots */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #bbb;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #0099ff;
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-  .highway-hero {
-    flex-direction: column;
-    text-align: center;
+  .gallery-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* Text */
+.service-text {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+.service-text p {
+  text-align: justify;
+  color: #555;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* Info grid */
+.service-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 35px auto 0;
+  max-width: 1000px;
+}
+
+.info-box {
+  background: #f3f9ff;
+  padding: 22px;
+  border-radius: 14px;
+}
+
+.info-box h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-box ul {
+  padding-left: 18px;
+}
+
+.info-box li {
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Standards */
+.service-standards-new {
+  max-width: 1000px;
+  margin: 30px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #e6e6e6;
+  font-size: 18px;
+  color: #444;
+}
+
+.service-cta {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.cta-btn {
+  background: #0099ff;
+  color: #fff;
+  width: 240px;
+  padding: 14px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #0077cc;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 153, 255, 0.4);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .highway-services-section {
+    margin: 20px 15px;
   }
 
-  .hero-btns {
-    justify-content: center;
+  .service-card-new {
+    padding: 30px 22px;
+  }
+
+  .service-title {
+    font-size: 26px;
+    padding: 0 16px;
+  }
+
+  .service-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-text p {
+    font-size: 15px;
   }
 }

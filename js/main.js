@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dotsBox
       .querySelectorAll("span")
       .forEach((d, i) =>
-        d.classList.toggle("active", i === index % originals.length)
+        d.classList.toggle("active", i === index % originals.length),
       );
   }
 
@@ -312,10 +312,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ["touchstart", "mousedown"].forEach((e) => track.addEventListener(e, start));
   ["touchmove", "mousemove"].forEach((e) =>
-    track.addEventListener(e, moveDrag)
+    track.addEventListener(e, moveDrag),
   );
   ["touchend", "mouseup", "mouseleave"].forEach((e) =>
-    track.addEventListener(e, end)
+    track.addEventListener(e, end),
   );
 
   window.onresize = () => move(false);
@@ -347,7 +347,7 @@ document.getElementById("quoteForm").addEventListener("submit", function (e) {
     .sendForm(
       "YOUR_SERVICE_ID", // replace
       "YOUR_TEMPLATE_ID", // replace
-      this
+      this,
     )
     .then(
       function () {
@@ -357,9 +357,111 @@ document.getElementById("quoteForm").addEventListener("submit", function (e) {
       function (error) {
         alert("Failed to send message. Try again!");
         console.log(error);
-      }
+      },
     );
 });
+
+// individual services images slider
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".sliderContainer").forEach((sliderContainer) => {
+    const slider = sliderContainer.querySelector(".slider");
+    let slides = [...slider.querySelectorAll(".slide")];
+    const nextBtn = sliderContainer.querySelector(".next");
+    const prevBtn = sliderContainer.querySelector(".prev");
+    const dotsContainer = sliderContainer.querySelector(".dots");
+
+    let currentIndex = 1;
+    let isAnimating = false;
+
+    /* CLONE FIRST & LAST */
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, slides[0]);
+
+    slides = [...slider.querySelectorAll(".slide")];
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    /* CREATE DOTS */
+    slides.forEach((slide, index) => {
+      if (index === 0 || index === slides.length - 1) return;
+
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (index === currentIndex) dot.classList.add("active");
+      dotsContainer.appendChild(dot);
+    });
+
+    const allDots = [...dotsContainer.querySelectorAll(".dot")];
+
+    function updateDots() {
+      allDots.forEach((dot) => dot.classList.remove("active"));
+
+      if (currentIndex === 0) {
+        allDots[allDots.length - 1].classList.add("active");
+      } else if (currentIndex === slides.length - 1) {
+        allDots[0].classList.add("active");
+      } else {
+        allDots[currentIndex - 1].classList.add("active");
+      }
+    }
+
+    function updateSlide() {
+      slider.style.transition = "0.5s";
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
+
+      setTimeout(() => {
+        if (currentIndex >= slides.length - 1) {
+          slider.style.transition = "none";
+          currentIndex = 1;
+          slider.style.transform = `translateX(-100%)`;
+        }
+
+        if (currentIndex <= 0) {
+          slider.style.transition = "none";
+          currentIndex = slides.length - 2;
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+      }, 500);
+    }
+
+    function nextSlide() {
+      if (isAnimating) return;
+      isAnimating = true;
+      currentIndex++;
+      updateSlide();
+      setTimeout(() => (isAnimating = false), 500);
+    }
+
+    function prevSlide() {
+      if (isAnimating) return;
+      isAnimating = true;
+      currentIndex--;
+      updateSlide();
+      setTimeout(() => (isAnimating = false), 500);
+    }
+
+    function goToSlide(index) {
+      if (isAnimating) return;
+      isAnimating = true;
+      currentIndex = index + 1;
+      updateSlide();
+      setTimeout(() => (isAnimating = false), 500);
+    }
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    allDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+      });
+    });
+  });
+});
+
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   includeHTML(() => {

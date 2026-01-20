@@ -722,7 +722,9 @@ a:focus-visible {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 25px rgba(56, 189, 248, 0.5),
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.6),
+    0 0 25px rgba(56, 189, 248, 0.5),
     0 0 50px rgba(30, 144, 255, 0.4);
 }
 
@@ -1159,8 +1161,11 @@ a:focus-visible {
   color: #475569;
   transform: translateY(-5px);
 
-  transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.2s ease,
-    opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 /* Open */
