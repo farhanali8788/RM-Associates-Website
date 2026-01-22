@@ -133,7 +133,7 @@ function initHeroSlider() {
   setInterval(() => showSlide(heroIndex + 1), 6000);
 }
 
-/* ================= TESTING PROCESS SLIDER ================= */
+/* ================= TESTING PROCESS SLIDER (Home Page) ================= */
 function initProcessSlider() {
   const track = document.querySelector(".process-track");
   const slides = document.querySelectorAll(".process-slide");
@@ -179,7 +179,7 @@ function initProcessSlider() {
   updateSlider();
 }
 
-/* ================= TESTIMONIAL SLIDER ================= */
+/* ================= TESTIMONIAL SLIDER (Home Page) ================= */
 function initTestimonialSlider() {
   const track = document.querySelector(".ts-track");
   const cards = document.querySelectorAll(".testimonial-card");
@@ -210,7 +210,7 @@ function initTestimonialSlider() {
   }
 }
 
-/* ================= FAQ ================= */
+/* ================= FAQ (Home Page) ================= */
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
     const item = btn.parentElement;
@@ -223,7 +223,7 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
   });
 });
 
-/* ================= COUNTERS ================= */
+/* ================= COUNTERS (About Page) ================= */
 const counters = document.querySelectorAll(".counter");
 let counterStarted = false;
 
@@ -249,8 +249,9 @@ const startCount = () => {
   });
 };
 
+/* ================= Scroll (Services Pages) ================= */
 window.addEventListener("scroll", () => {
-  const section = document.querySelector(".stats-section");
+  const section = document.querySelectorAll(".stats-section");
   if (!section) return;
 
   if (section.getBoundingClientRect().top < window.innerHeight - 150) {
@@ -258,76 +259,74 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* ================= SERVICES CAROUSEL SAFE ================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".carousel-track");
-  if (!track) return; // FIX
+/* ================= SERVICES Individual Images  ================= */
+function servicesSlider() {
+  document.querySelectorAll(".sliderContainer").forEach((container) => {
+    const slider = container.querySelector(".slider");
+    const slides = container.querySelectorAll(".slide");
+    const prev = container.querySelector(".prev");
+    const next = container.querySelector(".next");
+    const dotsBox = container.querySelector(".dots");
 
-  const prev = document.querySelector(".prev");
-  const next = document.querySelector(".next");
-  const dotsBox = document.querySelector(".carousel-dots");
+    if (!slider || !prev || !next || !dotsBox) return; // safety check
 
-  const originals = [...track.children];
-  originals.forEach((c) => track.appendChild(c.cloneNode(true)));
+    let index = 0;
 
-  let index = 0,
-    autoTimer;
-  const DELAY = 2000;
-  const cards = [...track.children];
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dotsBox.appendChild(dot);
 
-  const cardW = () => {
-    const s = getComputedStyle(cards[0]);
-    return cards[0].offsetWidth + parseFloat(s.marginRight);
-  };
+      dot.addEventListener("click", () => {
+        index = i;
+        update();
+      });
+    });
 
-  function move(anim = true) {
-    track.style.transition = anim ? "0.45s ease" : "none";
-    track.style.transform = `translateX(-${index * cardW()}px)`;
-  }
+    const dots = dotsBox.querySelectorAll(".dot");
 
-  function nextSlide() {
-    index++;
-    move();
-    if (index >= originals.length * 2) {
-      setTimeout(() => {
-        index %= originals.length;
-        move(false);
-      }, 390);
+    function update() {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d) => d.classList.remove("active"));
+      dots[index].classList.add("active");
     }
-  }
 
-  function prevSlide() {
-    index--;
-    move();
-    if (index < 0) {
-      setTimeout(() => {
-        index = originals.length - 1;
-        move(false);
-      }, 390);
-    }
-  }
+    next.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      update();
+    });
 
-  function startAuto() {
-    clearTimeout(autoTimer);
-    autoTimer = setTimeout(() => {
-      nextSlide();
-      startAuto();
-    }, DELAY);
-  }
+    prev.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    });
+  });
+}
+document.addEventListener("DOMContentLoaded", servicesSlider);
 
-  next.onclick = () => {
-    nextSlide();
-    startAuto();
-  };
+// get quote fixed button button
+const openModal = document.getElementById("openModal");
+const closeModal = document.getElementById("closeModal");
+const modal = document.getElementById("quoteModal");
 
-  prev.onclick = () => {
-    prevSlide();
-    startAuto();
-  };
-
-  window.onresize = () => move(false);
+// Open modal
+openModal.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.classList.add("active");
 });
 
+// Close modal
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+// Close when clicking outside modal
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+  }
+});
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   includeHTML(() => {
@@ -337,5 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroSlider();
     initProcessSlider();
     initTestimonialSlider();
+    updateSlider();
+    servicesSlider();
   });
 });

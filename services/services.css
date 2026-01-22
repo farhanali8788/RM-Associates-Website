@@ -1107,3 +1107,161 @@ a:focus-visible {
     font-size: 15px;
   }
 }
+
+/* <------- NDT TESTING PAGE -------> */
+
+.ndt-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/ndt-hero2.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+/* <------- CONCRETE TESTING PAGE -------> */
+.concrete-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/concrete-hero2.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+/* <------- STRUCTURAL DESIGN PAGE -------> */
+
+/* hero section */
+.structural-design-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/structural-design-hero.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+/* about section */
+.structural-about-sec {
+  padding: 100px 0;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(14, 165, 233, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(56, 189, 248, 0.06),
+      transparent 40%
+    ),
+    #fff;
+}
+
+.structural-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.structural-text {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #0ea5e9;
+}
+
+.structural-text h2 {
+  color: #0ea5e9;
+  font-size: 42px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.structural-text h2 span {
+  color: #0f172a;
+}
+
+.structural-text p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.structural-points {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.structural-points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  background: #f1f5f9;
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.structural-points li:hover {
+  background: #e0f2fe;
+  transform: translateX(6px);
+}
+
+.structural-points i {
+  color: #0ea5e9;
+}
+
+.structural-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 26px;
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+  transition: 0.5s ease;
+}
+
+.structural-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .structural-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .structural-text {
+    padding: 30px 24px;
+  }
+
+  .structural-text h2 {
+    font-size: 28px;
+  }
+
+  .structural-image img {
+    height: 260px;
+    border-radius: 18px;
+  }
+}
+
+/* what we offer */
+.structural-features-sec {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #f0f9ff, #ffffff);
+}

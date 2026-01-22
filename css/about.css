@@ -124,7 +124,9 @@ a:focus-visible {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6), 0 0 25px rgba(56, 189, 248, 0.5),
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.6),
+    0 0 25px rgba(56, 189, 248, 0.5),
     0 0 50px rgba(30, 144, 255, 0.4);
 }
 
@@ -142,7 +144,8 @@ a:focus-visible {
 }
 .btn-outline:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.4),
     0 0 20px rgba(255, 255, 255, 0.25);
 }
 
@@ -171,7 +174,8 @@ a:focus-visible {
     backdrop-filter: blur(5px);
     padding: 28px 22px;
     border-radius: 18px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35),
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.35),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
     animation: slideUp 0.8s ease forwards;
   }
@@ -226,7 +230,8 @@ a:focus-visible {
 
 .about-section {
   padding: 100px 0;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 20% 20%,
       rgba(14, 165, 233, 0.08),
       transparent 40%
@@ -342,6 +347,7 @@ a:focus-visible {
 .about-text,
 .about-image {
   opacity: 0;
+  text-align: justify;
   transform: translateY(30px);
   animation: fadeUp 0.8s ease forwards;
 }
