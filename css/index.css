@@ -18,6 +18,10 @@ body {
   color: var(--text);
 }
 
+main {
+  padding-top: 20px;
+}
+
 /* ACCESSIBILITY (KEYBOARD FOCUS) */
 a:focus-visible {
   outline: 2px dashed var(--primary);

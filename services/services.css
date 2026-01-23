@@ -19,7 +19,13 @@ body {
 }
 
 main {
-  padding-top: 86px;
+  padding-top: 97px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 70px;
+  }
 }
 
 /* ACCESSIBILITY (KEYBOARD FOCUS) */
@@ -786,6 +792,7 @@ a:focus-visible {
 .scroll-text {
   display: block;
   font-size: 15px;
+  font-weight: 700;
   color: var(--white);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -795,8 +802,8 @@ a:focus-visible {
 
 /* existing animation */
 .scroll-indicator {
-  width: 28px;
-  height: 48px;
+  width: 34px;
+  height: 63px;
   border: 2px solid #fff;
   border-radius: 20px;
   position: relative;
@@ -822,7 +829,7 @@ a:focus-visible {
     opacity: 1;
   }
   100% {
-    top: 30px;
+    top: 50px;
     opacity: 0;
   }
 }
@@ -1120,6 +1127,12 @@ a:focus-visible {
   padding: 0 10%;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .ndt-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
+}
 
 /* <------- CONCRETE TESTING PAGE -------> */
 .concrete-hero {
@@ -1131,6 +1144,12 @@ a:focus-visible {
   align-items: center;
   padding: 0 10%;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .concrete-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
 }
 
 /* <------- STRUCTURAL DESIGN PAGE -------> */
@@ -1240,6 +1259,10 @@ a:focus-visible {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .structural-design-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
   .structural-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1264,4 +1287,273 @@ a:focus-visible {
 .structural-features-sec {
   padding: 100px 0;
   background: linear-gradient(180deg, #f0f9ff, #ffffff);
+}
+
+/* <------- PROJECT MANAGEMENT SECTION -------> */
+
+/* hero section */
+.project-management-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/project-management-hero.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+/* about section */
+.project-management-about-sec {
+  padding: 100px 0;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(14, 165, 233, 0.08),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(56, 189, 248, 0.06),
+      transparent 40%
+    ),
+    #fff;
+}
+
+.project-management-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.project-management-text {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #0ea5e9;
+}
+
+.project-management-text h2 {
+  color: #0ea5e9;
+  font-size: 42px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.project-management-text h2 span {
+  color: #0f172a;
+}
+
+.project-management-text p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.project-management-points {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.project-management-points li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  background: #f1f5f9;
+  padding: 12px 18px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.project-management-points li:hover {
+  background: #e0f2fe;
+  transform: translateX(6px);
+}
+
+.project-management-points i {
+  color: #0ea5e9;
+}
+
+.project-management-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 26px;
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+  transition: 0.5s ease;
+}
+
+.project-management-image:hover img {
+  transform: scale(1.05);
+}
+
+/* ============ EXPERTISE LIST STYLE ============ */
+
+.project-expertise-sec {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.expertise-list {
+  max-width: 800px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.expertise-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 15px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  transition: 0.3s ease-in-out;
+}
+.expertise-item:hover {
+  transform: scale(1.01);
+}
+
+.expertise-item i {
+  color: #0d6efd;
+  font-size: 20px;
+  min-width: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-management-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
+  .project-management-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .project-management-text {
+    padding: 30px 24px;
+  }
+
+  .project-management-text h2 {
+    font-size: 28px;
+  }
+
+  .project-management-image img {
+    height: 260px;
+    border-radius: 18px;
+  }
+}
+
+/* <------- PROJECT MANAGEMENT SECTION -------> */
+
+/* hero section */
+.survey-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/Survey-hero.webp")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .survey-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
+}
+
+/* <------- SOIL INVESTIGATION SECTION -------> */
+
+/* hero section */
+.soil-investigation-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/soil-investigation-hero.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .soil-investigation-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
+}
+
+/* <------- BITUMEN TESTING SECTION -------> */
+
+/* hero section */
+.bitumen-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/bitumen-hero.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .bitumen-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
+}
+
+/* <------- PILE LOAD TEST SECTION -------> */
+
+/* hero section */
+.pileload-hero {
+  position: relative;
+  min-height: 90vh;
+  background: url("../img/services-page/individual-services/-hero.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .pileload-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
+}
+
+/* <------- STRUCTURAL STABILITY TESTING PAGE -------> */
+
+.Structural-stability-hero {
+  position: relative;
+  min-height: 93vh;
+  background: url("../img/services-page/individual-services/structrual-stability-hero2.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .Structural-stability-hero {
+    padding: 120px 6% 130px;
+    align-items: flex-start;
+  }
 }

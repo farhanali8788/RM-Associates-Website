@@ -251,10 +251,12 @@ const startCount = () => {
 
 /* ================= Scroll (Services Pages) ================= */
 window.addEventListener("scroll", () => {
-  const section = document.querySelectorAll(".stats-section");
+  const section = document.querySelector(".stats-section"); // SINGLE element
   if (!section) return;
 
-  if (section.getBoundingClientRect().top < window.innerHeight - 150) {
+  const top = section.getBoundingClientRect().top;
+
+  if (top < window.innerHeight - 150) {
     startCount();
   }
 });
@@ -271,6 +273,7 @@ function servicesSlider() {
     if (!slider || !prev || !next || !dotsBox) return; // safety check
 
     let index = 0;
+    dotsBox.innerHTML = "";
 
     slides.forEach((_, i) => {
       const dot = document.createElement("span");
@@ -336,7 +339,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeroSlider();
     initProcessSlider();
     initTestimonialSlider();
-    updateSlider();
     servicesSlider();
   });
 });

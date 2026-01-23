@@ -19,7 +19,13 @@ body {
 }
 
 main {
-  padding-top: 86px;
+  padding-top: 97px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 70px;
+  }
 }
 
 /* ACCESSIBILITY (KEYBOARD FOCUS) */
@@ -512,7 +518,7 @@ a:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1e90ff, #38bdf8);
+  background: linear-gradient(135deg, #e7f2fd, #97dffe);
   opacity: 0;
   transition: 0.35s;
 }
@@ -523,7 +529,7 @@ a:focus-visible {
 
 .why-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 18px 45px rgba(30, 144, 255, 0.25);
+  box-shadow: 0 18px 45px rgba(127, 190, 253, 0.422);
 }
 
 /* ICON */
