@@ -42,37 +42,185 @@ function fixNavbarLinks() {
   set("navAbout", "about.html");
   set("navServices", "services/index.html");
   set("navProjects", "projects.html");
+  set("navCareer", "career.html");
   set("navContact", "contacts.html");
 
   set("navHighway", "services/highway-testing.html");
-  set("navBitumen", "services/bitumen-testing.html");
-  set("navNdt", "services/ndt-testing.html");
-  set("navPileLoadTest", "services/pile-load-testing.html");
-  set("navConcreteTesting", "services/concrete-testing.html");
-  set("navProjectManagement", "services/project-management.html");
-  set("navSoilInvestigation", "services/soil-investigation.html");
-  set("navStructuralDesign", "services/structural-design.html");
-  set("navStructuralStability", "services/structural-stability.html");
-  set("navSurvey", "services/survey.html");
+  // Highway submenu
+  set("navNsv", "services/highway-testing.html#nsv");
+  set("navFwd", "services/highway-testing.html#fwd");
+  set("navTs", "services/highway-testing.html#traffic-survey");
+  set("navMdbs", "services/highway-testing.html#mdbs");
+  set("navSrt", "services/highway-testing.html#skr");
+  set("navBbd", "services/highway-testing.html#bbd");
+  set("navIri", "services/highway-testing.html#iri");
+  set("navRr", "services/highway-testing.html#retro-reflectometer");
 
-  // MOBILE
+  // Bitumen Testing
+  set("navBitumen", "services/bitumen-testing.html");
+
+  set("navNdt", "services/ndt-testing.html");
+  // NDT submenu
+  set("navRhammer", "services/ndt-testing.html#nsv");
+  set("navUspv", "services/ndt-testing.html#fwd");
+  set("navCarbonation", "services/ndt-testing.html#traffic-survey");
+  set("navHcp", "services/ndt-testing.html#mdbs");
+  set("navPintegrity", "services/ndt-testing.html#skr");
+  set("navCmeter", "services/ndt-testing.html#bbd");
+
+  // Pile Load Test
+  set("navPileLoadTest", "services/pile-load-testing.html");
+
+  set("navConcreteTesting", "services/concrete-testing.html");
+  // Concrete Testing submenu
+  set("navCmd", "services/concrete-testing.html#nsv");
+  set("navCct", "services/concrete-testing.html#fwd");
+  set("navCcutting", "services/concrete-testing.html#traffic-survey");
+  set("navFst", "services/concrete-testing.html#mdbs");
+  set("navCpt", "services/concrete-testing.html#skr");
+  set("navAt", "services/concrete-testing.html#bbd");
+
+  // Project Management
+  set("navProjectManagement", "services/project-management.html");
+  // Soil Investigation
+  set("navSoilInvestigation", "services/soil-investigation.html");
+  // Structural Design
+  set("navStructuralDesign", "services/structural-design.html");
+
+  set("navStructuralStability", "services/structural-stability.html");
+  // Structural Stability submenu
+  set("navSab", "services/structural-stability.html#nsv");
+  set("navSab2", "services/structural-stability.html#fwd");
+  set("nav4S", "services/structural-stability.html#traffic-survey");
+
+  set("navSurvey", "services/survey.html");
+  // Survey submenu
+  set("navTsurvey", "services/survey.html#nsv");
+  set("navDgps", "services/survey.html#fwd");
+  set("navTopo", "services/survey.html#traffic-survey");
+  set("navDronesurvey", "services/survey.html#skr");
+
+  set("navStructuralEngineering", "services/structural-engineering.html");
+  // Structural Engineering submenu
+  set("navBuilding", "services/structural-engineering.html#nsv");
+  set("navBridges", "services/structural-engineering.html#fwd");
+  set("navRobc", "services/structural-engineering.html#traffic-survey");
+  set("navRoads", "services/structural-engineering.html#mdbs");
+
+  //////////// MOBILE  ///////////////
+
   set("mbnavHome2", "index.html");
   set("mbnavAbout", "about.html");
   set("mbnavServices", "services/index.html");
   set("mbnavProjects", "projects.html");
+  set("mbnavCareer", "career.html");
   set("mbnavContact", "contacts.html");
 
-  set("mbnavHighway", "services/highway-testing.html");
+  // Mobile Highway Testing
+  // set("mbnavHighway", "services/highway-testing.html");
+  set("mbnavNsv", "services/highway-testing.html#nsv");
+  set("mbnavFwd", "services/highway-testing.html#fwd");
+  set("mbnavTs", "services/highway-testing.html#traffic-survey");
+  set("mbnavMdbs", "services/highway-testing.html#mdbs");
+  set("mbnavSrt", "services/highway-testing.html#skr");
+  set("mbnavBbd", "services/highway-testing.html#bbd");
+  set("mbnavIri", "services/highway-testing.html#iri");
+  set("mbnavRr", "services/highway-testing.html#retro-reflectometer");
+
+  // Mobile Bitumen Testing
   set("mbnavBitumen", "services/bitumen-testing.html");
+
+  // Mobile NDT Testing
   set("mbnavNdt", "services/ndt-testing.html");
+  set("mbnavRhammer", "services/ndt-testing.html#nsv");
+  set("mbnavUspv", "services/ndt-testing.html#fwd");
+  set("mbnavCarbonation", "services/ndt-testing.html#traffic-survey");
+  set("mbnavHcp", "services/ndt-testing.html#mdbs");
+  set("mbnavPintegrity", "services/ndt-testing.html#skr");
+  set("mbnavCmeter", "services/ndt-testing.html#bbd");
+
+  // Mobiel Pile Load Test
   set("mbnavPileLoadTest", "services/pile-load-testing.html");
+
+  // Mobile Concrete Testing
   set("mbnavConcreteTesting", "services/concrete-testing.html");
+  set("mbnavCmd", "services/concrete-testing.html#nsv");
+  set("mbnavCct", "services/concrete-testing.html#fwd");
+  set("mbnavCcutting", "services/concrete-testing.html#traffic-survey");
+  set("mbnavFst", "services/concrete-testing.html#mdbs");
+  set("mbnavCpt", "services/concrete-testing.html#skr");
+  set("mbnavAt", "services/concrete-testing.html#bbd");
+
+  // Mobile Project Management
   set("mbnavProjectManagement", "services/project-management.html");
+
+  // Mobile Soil Investigation
   set("mbnavSoilInvestigation", "services/soil-investigation.html");
+
+  // Mobile Structural design
   set("mbnavStructuralDesign", "services/structural-design.html");
+
+  // Mobile Structural Stability
   set("mbnavStructuralStability", "services/structural-stability.html");
+  set("mbnavSab", "services/structural-stability.html#nsv");
+  set("mbnavSab2", "services/structural-stability.html#fwd");
+  set("mbnav4S", "services/structural-stability.html#traffic-survey");
+
+  // Mobile Survey
   set("mbnavSurvey", "services/survey.html");
+  set("mbnavTsurvey", "services/survey.html#nsv");
+  set("mbnavDgps", "services/survey.html#fwd");
+  set("mbnavTopo", "services/survey.html#traffic-survey");
+  set("mbnavDronesurvey", "services/survey.html#skr");
+
+  set("mbnavStructuralEngineering", "services/structural-engineering.html");
+  // Structural Engineering submenu
+  set("mbnavBuilding", "services/structural-engineering.html#nsv");
+  set("mbnavRobc", "services/structural-engineering.html#fwd");
+  set("mbnavBridges", "services/structural-engineering.html#traffic-survey");
+  set("mbnavRoads", "services/structural-engineering.html#mdbs");
 }
+
+function initMobileSubmenu() {
+  const mobileSubmenus = document.querySelectorAll(
+    ".offcanvas .dropdown-submenu > .dropdown-item",
+  );
+
+  mobileSubmenus.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      // Check if this item has a submenu
+      const parentLi = this.parentElement;
+      const submenu = parentLi.querySelector(".submenu");
+
+      if (submenu) {
+        // If it has a submenu, prevent default and toggle
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Close all other submenus
+        const allSubmenus = document.querySelectorAll(
+          ".offcanvas .dropdown-submenu",
+        );
+        allSubmenus.forEach((sub) => {
+          if (sub !== parentLi) {
+            sub.classList.remove("active");
+          }
+        });
+
+        // Toggle current submenu
+        parentLi.classList.toggle("active");
+      }
+      // If no submenu, let the link work normally (navigate to page)
+    });
+  });
+}
+document
+  .getElementById("mbnavServices")
+  ?.addEventListener("click", function (e) {
+    e.preventDefault();
+    const menu = this.nextElementSibling;
+    menu.classList.toggle("show");
+  });
 
 /* ================= FOOTER LINKS ================= */
 function fixFooterLinks() {
@@ -340,5 +488,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initProcessSlider();
     initTestimonialSlider();
     servicesSlider();
+    initMobileSubmenu();
   });
 });

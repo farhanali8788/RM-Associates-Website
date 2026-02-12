@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Career | RM Associates</title>
+    <link rel="icon" href="./img/logo.svg" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Main CSS -->
+    <!-- <link rel="stylesheet" href="css/index.css" /> -->
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link rel="stylesheet" href="css/career.css" />
+  </head>
+  <body>
+    <!-- about page content start  -->
+    <!-- HEADER -->
+    <div include-html="navbar.html"></div>
+    <main>
+      <!-- ABOUT HERO -->
+      <section class="career-hero-full">
+        <img
+          src="img/About-page/career-hero2.jpg"
+          class="hero-bg"
+          alt="Engineering Team"
+          loading="lazy"
+        />
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+          <span class="hero-tag">Join Our Team</span>
+
+          <h1>Build Your Career With <span>RM Associates</span></h1>
+
+          <p>
+            We are always looking for talented civil engineers, lab technicians,
+            and project professionals passionate about quality and innovation.
+          </p>
+
+          <div class="hero-actions">
+            <a href="./contacts.html" class="btn-primary">Contact Us</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY WORK WITH US -->
+      <section class="career-why">
+        <div class="container">
+          <div class="section-head">
+            <h2>Why Work With Us?</h2>
+            <p>We provide growth, learning & long-term career opportunities</p>
+          </div>
+
+          <div class="career-grid">
+            <div class="career-card">
+              <i class="fas fa-chart-line"></i>
+              <h4>Career Growth</h4>
+              <p>Structured learning, mentorship & performance-based growth.</p>
+            </div>
+
+            <div class="career-card">
+              <i class="fas fa-flask"></i>
+              <h4>Advanced Technology</h4>
+              <p>Work with modern testing equipment & engineering tools.</p>
+            </div>
+
+            <div class="career-card">
+              <i class="fas fa-users"></i>
+              <h4>Professional Team</h4>
+              <p>Collaborate with experienced civil engineers & experts.</p>
+            </div>
+
+            <div class="career-card">
+              <i class="fas fa-award"></i>
+              <h4>Recognition</h4>
+              <p>Performance recognition & rewarding work culture.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPEN POSITIONS -->
+      <section class="career-openings">
+        <div class="container">
+          <div class="section-head">
+            <h2>Current Openings</h2>
+            <p>Explore available positions</p>
+          </div>
+
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Civil Site Engineer</h3>
+              <span>Full-Time | 2+ Years Experience</span>
+            </div>
+            <a href="contacts.html" class="btn-apply">Apply Now</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Lab Technician</h3>
+              <span>Full-Time | Material Testing Experience</span>
+            </div>
+            <a href="contacts.html" class="btn-apply">Apply Now</a>
+          </div>
+
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Survey Engineer</h3>
+              <span>Full-Time | DGPS / Total Station Knowledge</span>
+            </div>
+            <a href="contacts.html" class="btn-apply">Apply Now</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPLICATION SECTION -->
+      <!-- <section class="career-cta">
+        <div class="cta-overlay">
+          <div class="cta-content">
+            <h2>Didn't Find a Suitable Position?</h2>
+            <p>
+              Send us your resume and we’ll contact you for future
+              opportunities.
+            </p>
+            <a href="contacts.html" class="cta-btn primary">
+              <i class="fa-solid fa-paper-plane"></i> Submit Resume
+            </a>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- CTA SECTION -->
+      <section class="cta-section">
+        <div class="cta-overlay">
+          <div class="cta-content">
+            <h2>Didn't Find a Suitable Position?</h2>
+            <p>
+              Send us your resume and we’ll contact you for future
+              opportunities.
+            </p>
+
+            <div class="cta-actions">
+              <a href="./contacts.html" class="cta-btn primary">
+                <i class="fa-solid fa-file-invoice"></i> Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FIXED CTA BUTTON -->
+    <a href="#" class="fixed-cta animated-btn" id="openModal"> Get Quote </a>
+    <!-- MODAL -->
+    <div class="quote-modal" id="quoteModal">
+      <div class="modal-box">
+        <span class="close-modal" id="closeModal">&times;</span>
+
+        <h2>Get A Quote</h2>
+        <p>
+          Your email address will not be published. Required fields are marked *
+        </p>
+
+        <form id="quoteForm">
+          <div class="form-row">
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Your Name *"
+              required
+            />
+            <input
+              type="tel"
+              name="user_phone"
+              placeholder="Mobile Number *"
+              required
+            />
+          </div>
+
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Email *"
+            required
+          />
+
+          <textarea name="message" placeholder="Message..." rows="5"></textarea>
+
+          <button type="submit" class="modal-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- about page content end  -->
+
+    <!-- FOOTER -->
+    <div include-html="./footer.html"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
