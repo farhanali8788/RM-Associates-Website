@@ -235,6 +235,7 @@ function fixFooterLinks() {
   set("ftAbout", "about.html");
   set("ftServices", "services/index.html");
   set("ftProjects", "projects.html");
+  set("ftCareer", "Career.html");
   set("ftContact", "contacts.html");
 }
 
@@ -410,6 +411,41 @@ window.addEventListener("scroll", () => {
 });
 
 /* ================= SERVICES Individual Images  ================= */
+
+function initSidenav() {
+  const groups = document.querySelectorAll(".sidenav-group");
+  if (!groups.length) return;
+
+  const currentPage = location.pathname.split("/").pop();
+
+  groups.forEach((group) => {
+    const parentLink = group.querySelector(".sidenav-parent");
+    const children = group.querySelector(".sidenav-children");
+
+    // Mark single groups (no children) so CSS arrow is hidden
+    if (!children) group.classList.add("sidenav-single-group");
+
+    // Click to toggle accordion
+    if (parentLink && children) {
+      parentLink.addEventListener("click", function (e) {
+        // ALWAYS prevent default if this item has children
+        e.preventDefault();
+
+        const isOpen = group.classList.contains("active");
+
+        // Close all groups
+        groups.forEach((g) => g.classList.remove("active"));
+
+        // Toggle current
+        if (!isOpen) group.classList.add("active");
+      });
+    }
+  });
+
+  sections.forEach((s) => observer.observe(s));
+}
+
+// Individual Services Slider
 function servicesSlider() {
   document.querySelectorAll(".sliderContainer").forEach((container) => {
     const slider = container.querySelector(".slider");
@@ -418,7 +454,7 @@ function servicesSlider() {
     const next = container.querySelector(".next");
     const dotsBox = container.querySelector(".dots");
 
-    if (!slider || !prev || !next || !dotsBox) return; // safety check
+    if (!slider || !prev || !next || !dotsBox) return;
 
     let index = 0;
     dotsBox.innerHTML = "";
@@ -489,5 +525,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initTestimonialSlider();
     servicesSlider();
     initMobileSubmenu();
+    initSidenav();
   });
 });

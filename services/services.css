@@ -1168,7 +1168,7 @@ a:focus-visible {
 
 /* about section */
 .structural-about-sec {
-  padding: 100px 0;
+  padding: 0 0 100px;
   background:
     radial-gradient(
       circle at 20% 20%,
@@ -1305,7 +1305,7 @@ a:focus-visible {
 
 /* about section */
 .project-management-about-sec {
-  padding: 100px 0;
+  padding: 0 0 100px;
   background:
     radial-gradient(
       circle at 20% 20%,
@@ -1524,7 +1524,7 @@ a:focus-visible {
 .pileload-hero {
   position: relative;
   min-height: 90vh;
-  background: url("../img/services-page/individual-services/-hero.jpg")
+  background: url("../img/services-page/individual-services/pile-integrity.jpg")
     center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -1574,5 +1574,243 @@ a:focus-visible {
   .Structural-engineering-hero {
     padding: 120px 6% 130px;
     align-items: flex-start;
+  }
+}
+
+/* =============================================
+   LAYOUT WRAPPER
+   ============================================= */
+.services-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* =============================================
+   SIDEBAR — LIGHT REDESIGN
+   ============================================= */
+.services-sidenav {
+  width: 245px;
+  min-width: 245px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Light background */
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  border-radius: 5px;
+
+  /* Subtle shadow to separate from content */
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.05);
+
+  scrollbar-width: thin;
+  scrollbar-color: #bfdbfe transparent;
+  z-index: 100;
+}
+
+.services-sidenav::-webkit-scrollbar {
+  width: 3px;
+}
+.services-sidenav::-webkit-scrollbar-thumb {
+  background: #bfdbfe;
+  border-radius: 4px;
+}
+
+/* Inner */
+.sidenav-inner {
+  padding: 24px 0 48px;
+}
+
+/* ── Header ── */
+.sidenav-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 8px;
+}
+
+.sidenav-logo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e88e5, #38bdf8);
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.5);
+  flex-shrink: 0;
+}
+
+/* ── Groups ── */
+.sidenav-group {
+  border-bottom: 1px solid #f8fafc;
+}
+
+/* ── Parent link ── */
+.sidenav-parent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 18px 11px 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  background: transparent;
+}
+
+/* Icon */
+.sidenav-parent i {
+  font-size: 13px;
+  color: #94a3b8;
+  width: 17px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+/* Chevron arrow for groups with children */
+.sidenav-group:not(.sidenav-single-group) .sidenav-parent::after {
+  content: "›";
+  margin-left: auto;
+  font-size: 17px;
+  line-height: 1;
+  color: #cbd5e1;
+  transition:
+    transform 0.3s ease,
+    color 0.2s ease;
+  padding-right: 2px;
+}
+
+/* Hover state */
+.sidenav-parent:hover {
+  color: #1e88e5;
+  background: #f0f9ff;
+}
+
+.sidenav-parent:hover i {
+  color: #1e88e5;
+}
+
+.sidenav-parent:hover::after {
+  color: #1e88e5;
+}
+
+/* Active / open group — parent */
+.sidenav-group.active > .sidenav-parent {
+  color: #1e88e5;
+  background: #eff6ff;
+  border-left: 3px solid #1e88e5;
+  padding-left: 17px;
+}
+
+.sidenav-group.active > .sidenav-parent i {
+  color: #1e88e5;
+}
+
+.sidenav-group.active > .sidenav-parent::after {
+  transform: rotate(90deg);
+  color: #1e88e5;
+}
+
+/* ── Children (sub-links) ── */
+.sidenav-children {
+  list-style: none;
+  padding: 4px 0 8px 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background: #f8fafc;
+  border-left: 2px solid #bfdbfe;
+  margin-left: 30px;
+  border-radius: 0 0 4px 4px;
+}
+
+.sidenav-group.active .sidenav-children {
+  max-height: 500px;
+}
+
+.sidenav-children li a {
+  display: block;
+  padding: 7px 14px 7px 14px;
+  font-size: 12.5px;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* Dash prefix */
+.sidenav-children li a::before {
+  content: "–";
+  margin-right: 6px;
+  color: #cbd5e1;
+  font-size: 11px;
+  transition: color 0.2s;
+}
+
+/* Child hover */
+.sidenav-children li a:hover {
+  color: #1e88e5;
+  padding-left: 18px;
+}
+
+.sidenav-children li a:hover::before {
+  color: #1e88e5;
+}
+
+/* Active child (scroll highlight) */
+.sidenav-children li a.active-link {
+  color: #1e88e5;
+  font-weight: 600;
+  padding-left: 18px;
+}
+
+.sidenav-children li a.active-link::before {
+  color: #1e88e5;
+}
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+.services-main-content {
+  flex: 1;
+  min-width: 0;
+  background: #ffffff;
+}
+
+.services-main-content .highway-services-section,
+.services-main-content .ndt-services-section,
+.services-main-content .concrete-services-section {
+  margin: 60px 50px;
+}
+
+/* =============================================
+   MOBILE — hide sidebar
+   ============================================= */
+@media (max-width: 1024px) {
+  .services-layout {
+    flex-direction: column;
+  }
+
+  .services-sidenav {
+    display: none;
+  }
+
+  .services-main-content .highway-services-section,
+  .services-main-content .ndt-services-section,
+  .services-main-content .concrete-services-section {
+    margin: 20px 15px;
   }
 }
