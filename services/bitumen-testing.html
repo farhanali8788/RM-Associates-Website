@@ -33,9 +33,575 @@
     <link rel="stylesheet" href="../services/services.css" />
   </head>
   <body>
-    <!-- about page content start  -->
     <!-- HEADER -->
-    <div include-html="../navbar.html"></div>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid navbar-brand">
+          <a class="navbar-brand" href="/">
+            <img
+              src="../img/logo.svg"
+              class="site-logo"
+              alt="RM Associates Logo"
+            />
+            <!-- <div class="brand-text">
+        RM
+        <span>ASSOCIATES</span>
+      </div> -->
+          </a>
+
+          <!-- Mobile Toggle -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Desktop Menu -->
+          <div class="collapse navbar-collapse d-none d-lg-flex">
+            <ul class="navbar-nav ms-auto mt-3 gap-4">
+              <li class="nav-item hover-dropdown">
+                <a class="nav-link" id="navHome2" href="#">Home</a>
+              </li>
+
+              <li class="nav-item hover-dropdown">
+                <a class="nav-link" id="navAbout" href="#">About Us</a>
+              </li>
+
+              <li class="nav-item hover-dropdown">
+                <a class="nav-link dropdown-toggle" id="navServices" href="#">
+                  Services
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu position-relative">
+                    <a class="dropdown-item" id="navHighway" href="#"
+                      >Highway Testings
+                    </a>
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a class="dropdown-item" id="navNsv" href="#"
+                          >Network Survey Vehicle (NSV)</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navFwd" href="#"
+                          >Falling Weight Deflectometer (FWD)</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navTs" href="#"
+                          >Traffic Survey</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navMdbs" href="#"
+                          >MIT Dowel Bar Scanner</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navSrt" href="#"
+                          >Skid Resistance Testing</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navBbd" href="#"
+                          >BBD / Bump Integrator</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navIri" href="#"
+                          >International Roughness Index (IRI)</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navRr" href="#"
+                          >Retro Reflectometer</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu position-relative">
+                    <a class="dropdown-item" id="navNdt" href="#">NDT Test</a>
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a class="dropdown-item" id="navRhammer" href="#">
+                          Rebound Hammer</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navUspv" href="#"
+                          >Ultra Sonic Pulse Velocity</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navCarbonation" href="#"
+                          >Carbonation</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navHcp" href="#"
+                          >Half Cell Potentiometer</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navPintegrity" href="#"
+                          >Pile Integrity</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navCmeter" href="#"
+                          >Cover Meter</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu position-relative">
+                    <a class="dropdown-item" id="navConcreteTesting" href="#"
+                      >Concrete Testing</a
+                    >
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a class="dropdown-item" id="navCmd" href=""
+                          >Concrete Mix Design</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navCct" href=""
+                          >Cube Compression Test</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navCcutting" href=""
+                          >Core Cutting Test</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navFst" href=""
+                          >Flexural Strength Test</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navCpt" href=""
+                          >Cement Physical Test</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navAt" href=""
+                          >Aggregate Testing</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="navStructuralDesign" href="#"
+                      >Structural Design</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="navProjectManagement" href="#"
+                      >Project Management</a
+                    >
+                  </li>
+                  <li class="dropdown-submenu position-relative">
+                    <a class="dropdown-item" id="navSurvey" href="#">Survey</a>
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a class="dropdown-item" id="navTsurvey" href=""
+                          >Total Survey</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navDgps" href=""
+                          >DGPS Survey</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navTopo" href=""
+                          >Topography Survey</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navDronesurvey" href=""
+                          >Drone Survey</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="navSoilInvestigation" href="#"
+                      >Soil Investigation</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="navBitumen" href="#"
+                      >Bitumen Testing</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" id="navPileLoadTest" href="#"
+                      >Pile Load Test</a
+                    >
+                  </li>
+                  <li class="dropdown-submenu position-relative">
+                    <a
+                      class="dropdown-item"
+                      id="navStructuralStability"
+                      href="#"
+                      >Structural Stability</a
+                    >
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a class="dropdown-item" id="navSab" href=""
+                          >Structural Audit of Buildings</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navSab2" href=""
+                          >Structural Audit of Bridges</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="nav4S" href=""
+                          >Structural Stability of Steel Structures</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu position-relative">
+                    <a
+                      class="dropdown-item"
+                      id="navStructuralEngineering"
+                      href="#"
+                      >Structural Engineering</a
+                    >
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a class="dropdown-item" id="navBuilding" href="#"
+                          >Buildings</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navRobc" href="#"
+                          >Railway Over Bridges (ROBC)</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navBridges" href="#"
+                          >Bridges</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" id="navRoads" href="#"
+                          >Roads</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item hover-dropdown">
+                <a class="nav-link" id="navProjects" href="#">Projects</a>
+              </li>
+
+              <li class="nav-item hover-dropdown">
+                <a class="nav-link" id="navCareer" href="#">Career</a>
+              </li>
+
+              <li class="nav-item hover-dropdown">
+                <a class="nav-link" id="navContact" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- MOBILE OFFCANVAS -->
+      <div class="offcanvas offcanvas-end mobile-canvas" id="mobileMenu">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav text-start">
+            <li class="nav-item">
+              <a class="nav-link" id="mbnavHome2" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" id="mbnavAbout" href="#">About Us</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="mbnavServices"
+                data-bs-toggle="dropdown"
+                href="#"
+              >
+                Services
+              </a>
+
+              <ul class="dropdown-menu text-start">
+                <!-- Highway Testing - WITH SUBMENU -->
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" id="mbnavHighway" href="#"
+                    >Highway Testings</a
+                  >
+                  <ul class="dropdown-menu submenu">
+                    <li>
+                      <a class="dropdown-item" id="mbnavNsv" href="#"
+                        >Network Survey Vehicle (NSV)</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavFwd" href="#"
+                        >Falling Weight Deflectometer (FWD)</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavTs" href="#"
+                        >Traffic Survey</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavMdbs" href="#"
+                        >MIT Dowel Bar Scanner</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavSrt" href="#"
+                        >Skid Resistance Testing</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavBbd" href="#"
+                        >BBD / Bump Integrator</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavIri" href="#"
+                        >International Roughness Index (IRI)</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavRr" href="#"
+                        >Retro Reflectometer</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- NDT Test - WITH SUBMENU -->
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" id="mbnavNdt" href="#">NDT Test</a>
+                  <ul class="dropdown-menu submenu">
+                    <li>
+                      <a class="dropdown-item" id="mbnavRhammer" href="#"
+                        >Rebound Hammer</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavUspv" href="#"
+                        >Ultra Sonic Pulse Velocity</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavCarbonation" href="#"
+                        >Carbonation</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavHcp" href="#"
+                        >Half Cell Potentiometer</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavPintegrity" href="#"
+                        >Pile Integrity</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavCmeter" href="#"
+                        >Cover Meter</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Concrete Testing - WITH SUBMENU -->
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" id="mbnavConcreteTesting" href="#"
+                    >Concrete Testing</a
+                  >
+                  <ul class="dropdown-menu submenu">
+                    <li>
+                      <a class="dropdown-item" id="mbnavCmd" href="#"
+                        >Concrete Mix Design</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavCct" href="#"
+                        >Cube Compression Test</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavCcutting" href="#"
+                        >Core Cutting Test</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavFst" href="#"
+                        >Flexural Strength Test</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavCpt" href="#"
+                        >Cement Physical Test</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavAt" href="#"
+                        >Aggregate Testing</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Regular items WITHOUT submenu -->
+                <li>
+                  <a class="dropdown-item" id="mbnavStructuralDesign" href="#"
+                    >Structural Design</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" id="mbnavProjectManagement" href="#"
+                    >Project Management</a
+                  >
+                </li>
+
+                <!-- Survey - WITH SUBMENU -->
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" id="mbnavSurvey" href="#">Survey</a>
+                  <ul class="dropdown-menu submenu">
+                    <li>
+                      <a class="dropdown-item" id="mbnavTsurvey" href="#"
+                        >Total Survey</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavDgps" href="#"
+                        >DGPS Survey</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavTopo" href="#"
+                        >Topography Survey</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavDronesurvey" href="#"
+                        >Drone Survey</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" id="mbnavSoilInvestigation" href="#"
+                    >Soil Investigation</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" id="mbnavBitumen" href="#"
+                    >Bitumen Testing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" id="mbnavPileLoadTest" href="#"
+                    >Pile Load Test</a
+                  >
+                </li>
+
+                <!-- Structural Stability - WITH SUBMENU -->
+                <li class="dropdown-submenu">
+                  <a
+                    class="dropdown-item"
+                    id="mbnavStructuralStability"
+                    href="#"
+                    >Structural Stability</a
+                  >
+                  <ul class="dropdown-menu submenu">
+                    <li>
+                      <a class="dropdown-item" id="mbnavSab" href="#"
+                        >Structural Audit of Buildings</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavSab2" href="#"
+                        >Structural Audit of Bridges</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavS4" href="#"
+                        >Structural Stability of Steel Structures</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <!-- Structural Engineering - WITH SUBMENU -->
+                <li class="dropdown-submenu">
+                  <a
+                    class="dropdown-item"
+                    id="mbnavStructuralEngineering"
+                    href="#"
+                    >Structural Engineering</a
+                  >
+                  <ul class="dropdown-menu submenu">
+                    <li>
+                      <a class="dropdown-item" id="mbnavBuilding" href="#"
+                        >Buildings</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavRobc" href="#"
+                        >Railway Over Bridges (ROBC)</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavBridges" href="#"
+                        >Bridges</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="mbnavRoads" href="#"
+                        >Roads</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" id="mbnavProjects" href="#">Projects</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" id="mbnavCareer" href="#">Career</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" id="mbnavContact" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
     <main>
       <section class="bitumen-hero">
@@ -531,7 +1097,54 @@
     <!-- about page content end  -->
 
     <!-- FOOTER -->
-    <div include-html="../footer.html"></div>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- BRAND -->
+          <div class="footer-brand">
+            <h4>RM <span style="color: var(--primary)">ASSOCIATES</span></h4>
+            <p>
+              Reliable civil and construction solutions built with precision,
+              transparency, and long-term value.
+            </p>
+          </div>
+
+          <!-- QUICK LINKS -->
+          <div class="footer-links">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a id="ftAbout" href="#">About</a></li>
+              <li><a id="ftServices" href="#">Services</a></li>
+              <li><a id="ftProjects" href="#">Projects</a></li>
+              <li><a id="ftCareer" href="#">Career</a></li>
+              <li><a id="ftContact" href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="footer-contact">
+            <h5>Contact</h5>
+            <address>
+              <p>
+                Email:
+                <a href="mailto:info@rmassociates.com">
+                  info@rmassociates.com
+                </a>
+              </p>
+              <p>
+                Phone:
+                <a href="tel:+919000000000"> +91 9XXXXXXXXX </a>
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+          © <span id="currentYear"></span> RM Associates. All rights reserved.
+        </div>
+      </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
