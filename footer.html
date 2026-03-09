@@ -8,6 +8,13 @@
     font-size: 0.95rem;
   }
 
+  .footer-brand img {
+    height: 80px;
+    margin: 10px;
+    margin-bottom: 12px;
+    border-radius: 3%;
+  }
+
   .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -54,6 +61,51 @@
     font-size: 0.85rem;
     color: #94a3b8;
   }
+
+  /* SOCIAL ICONS */
+
+  .footer-social {
+    margin-top: 18px;
+    display: flex;
+    gap: 14px;
+  }
+
+  .footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    font-size: 16px;
+    transition: all 0.35s ease;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Hover animation */
+  .footer-social a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-4px) scale(1.05);
+  }
+
+  .footer-social a:nth-child(1):hover {
+    background: #1877f2; /* Facebook */
+  }
+
+  .footer-social a:nth-child(2):hover {
+    background: #e1306c; /* Instagram */
+  }
+
+  .footer-social a:nth-child(3):hover {
+    background: #0077b5; /* LinkedIn */
+  }
+
+  .footer-social a:nth-child(4):hover {
+    background: #ff0000; /* YouTube */
+  }
 </style>
 
 <footer class="site-footer">
@@ -61,11 +113,30 @@
     <div class="footer-grid">
       <!-- BRAND -->
       <div class="footer-brand">
-        <h4>RM <span style="color: var(--primary)">ASSOCIATES</span></h4>
+        <!-- <h4>RM <span style="color: var(--primary)">ASSOCIATES</span></h4> -->
+        <img src="img/logo.jpeg" alt="" />
         <p>
           Reliable civil and construction solutions built with precision,
           transparency, and long-term value.
         </p>
+        <!-- SOCIAL ICONS -->
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="https://instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://linkedin.com" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+          <a href="https://youtube.com" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
       </div>
 
       <!-- QUICK LINKS -->
@@ -85,12 +156,20 @@
         <h5>Contact</h5>
         <address>
           <p>
-            Email:
-            <a href="mailto:info@rmassociates.com"> info@rmassociates.com </a>
+            <b> Email:</b>
+            <a href="mailto:rmassociatesinfraa@gmail.com">
+              rmassociatesinfraa@gmail.com
+            </a>
           </p>
           <p>
-            Phone:
-            <a href="tel:+919000000000"> +91 9XXXXXXXXX </a>
+            <b> Phone:</b>
+            <a href="tel:+919000000000"> +91 91755 36599 </a>
+          </p>
+          <p style="text-align: justify">
+            <b> Office Address:</b>
+            <br />
+            Plot No. 94, Shubhangi Layout, opposite Balaji Mandir, Besa, Nagpur,
+            Maharashtra 440037.
           </p>
         </address>
       </div>

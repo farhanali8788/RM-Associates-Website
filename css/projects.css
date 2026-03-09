@@ -448,7 +448,8 @@ a:focus-visible {
 }
 
 .details-header h2 {
-  font-size: 36px;
+  font-size: 40px;
+  font-weight: 650;
   margin: 10px 0;
   color: var(--dark);
 }
@@ -468,7 +469,7 @@ a:focus-visible {
 }
 
 .project-detail h3 {
-  font-size: 22px;
+  font-size: 26px;
   color: var(--dark);
   margin-bottom: 10px;
 }
@@ -505,7 +506,7 @@ a:focus-visible {
 }
 
 .project-info h3 {
-  font-size: 26px;
+  font-size: 30px;
   margin-bottom: 12px;
   color: var(--dark);
 }
@@ -514,7 +515,8 @@ a:focus-visible {
   color: #64748b;
   line-height: 1.8;
   margin-bottom: 30px;
-  max-width: 520px;
+  max-width: 600px;
+  text-align: justify;
 }
 
 /* META */

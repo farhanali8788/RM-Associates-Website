@@ -117,7 +117,7 @@ function fixNavbarLinks() {
   set("mbnavContact", "contacts.html");
 
   // Mobile Highway Testing
-  // set("mbnavHighway", "services/highway-testing.html");
+  set("mbnavHighway", "services/highway-testing.html");
   set("mbnavNsv", "services/highway-testing.html#nsv");
   set("mbnavFwd", "services/highway-testing.html#fwd");
   set("mbnavTs", "services/highway-testing.html#traffic-survey");
@@ -359,6 +359,43 @@ function initTestimonialSlider() {
   }
 }
 
+/* ================= CERTIFICATION IMAGE MODAL ================= */
+function initCertModal() {
+  const certModal = document.getElementById("certModal");
+  const certModalImg = document.getElementById("certModalImg");
+  const certModalTitle = document.getElementById("certModalTitle");
+  const certModalSubtitle = document.getElementById("certModalSubtitle");
+  const certModalClose = document.getElementById("certModalClose");
+
+  if (!certModal) return;
+
+  document.querySelectorAll(".cert-img-trigger").forEach((img) => {
+    img.addEventListener("click", () => {
+      certModalImg.src = img.src;
+      certModalImg.alt = img.alt;
+      certModalTitle.textContent = img.dataset.title || "";
+      certModalSubtitle.textContent = img.dataset.subtitle || "";
+      certModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  certModalClose.addEventListener("click", closeCertModal);
+
+  certModal.addEventListener("click", (e) => {
+    if (e.target === certModal) closeCertModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeCertModal();
+  });
+
+  function closeCertModal() {
+    certModal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
+
 /* ================= FAQ (Home Page) ================= */
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -526,5 +563,6 @@ document.addEventListener("DOMContentLoaded", () => {
     servicesSlider();
     initMobileSubmenu();
     initSidenav();
+    initCertModal();
   });
 });
