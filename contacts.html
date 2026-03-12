@@ -79,19 +79,41 @@
           <!-- FORM CARD -->
 
           <div class="contact-alt-form">
-            <form>
+            <form id="contactForm">
               <div class="row">
-                <input type="text" placeholder="Your Name *" required />
-                <input type="tel" placeholder="Mobile Number *" required />
+                <input
+                  type="text"
+                  name="user_name"
+                  placeholder="Your Name *"
+                  required
+                />
+                <input
+                  type="tel"
+                  name="user_phone"
+                  placeholder="Mobile Number *"
+                  required
+                />
               </div>
 
-              <input type="email" placeholder="Your Email *" required />
+              <input
+                type="email"
+                name="user_email"
+                placeholder="Your Email *"
+                required
+              />
 
               <textarea
+                name="message"
                 rows="5"
                 placeholder="Describe your project..."
                 required
               ></textarea>
+
+              <input
+                type="text"
+                name="website"
+                style="position: absolute; left: -9999px"
+              />
 
               <button type="submit">Submit Enquiry</button>
             </form>
@@ -180,6 +202,11 @@
             placeholder="Your Email *"
             required
           />
+          <input
+            type="text"
+            name="website"
+            style="position: absolute; left: -9999px"
+          />
 
           <textarea name="message" placeholder="Message..." rows="5"></textarea>
 
@@ -198,5 +225,6 @@
 
     <!-- Main JS -->
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </body>
 </html>

@@ -551,6 +551,54 @@ window.addEventListener("click", (e) => {
     modal.classList.remove("active");
   }
 });
+
+/* ================= EMAILJS FORMS ================= */
+
+function initEmailForms() {
+  if (typeof emailjs === "undefined") return;
+
+  emailjs.init("bv1S7IjwH9ig3XHPK");
+
+  const forms = ["contactForm", "quoteForm"];
+  const formLoadedTime = Date.now();
+
+  forms.forEach((id) => {
+    const form = document.getElementById(id);
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      /* Honeypot Spam Protection */
+      const honeypot = form.querySelector('input[name="website"]');
+      if (honeypot && honeypot.value !== "") {
+        console.log("Spam detected");
+        return;
+      }
+
+      /* Delay Protection (4 seconds) */
+      if (Date.now() - formLoadedTime < 4000) {
+        alert("Please wait a moment before submitting.");
+        return;
+      }
+
+      /* Send Email */
+      emailjs
+        .sendForm("service_2z4hzmj", "template_8bcmd1w", form, {
+          publicKey: "bv1S7IjwH9ig3XHPK",
+        })
+        .then(() => {
+          alert("Message sent successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("EmailJS error:", error);
+          alert("Failed to send message.");
+        });
+    });
+  });
+}
+
 /* ================= INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   includeHTML(() => {
@@ -564,5 +612,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initMobileSubmenu();
     initSidenav();
     initCertModal();
+    initEmailForms();
   });
 });
