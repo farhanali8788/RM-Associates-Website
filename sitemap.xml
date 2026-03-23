@@ -13,7 +13,7 @@
 <loc>https://rmassociatesinfraa.in/services/index.html</loc>
 </url>
 
- <!-- ADD THESE 👇 -->
+
   <url>
     <loc>https://rmassociatesinfraa.in/services/highway-testing.html</loc>
   </url>
@@ -38,9 +38,7 @@
     <loc>https://rmassociatesinfraa.in/services/bitumen-testing.html</loc>
   </url>
 
-     <url>
-    <loc>https://rmassociatesinfraa.in/services/index.html</loc>
-  </url>
+   
 
  <url>
     <loc>https://rmassociatesinfraa.in/services/pile-load-testing.html</loc>
@@ -58,9 +56,16 @@
     <loc>https://rmassociatesinfraa.in/services/structural-stability.html</loc>
   </url>
 
+<url>
+<loc>https://rmassociatesinfraa.in/services/survey.html</loc>
+</url>
 
 <url>
 <loc>https://rmassociatesinfraa.in/projects.html</loc>
+</url>
+
+<url>
+<loc>https://rmassociatesinfraa.in/career.html</loc>
 </url>
 
 <url>
